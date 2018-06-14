@@ -1,20 +1,29 @@
 <!DOCTYPE html>
-<html lang="ru">
-    <head>
-        <meta charset="utf-8">
-	    <link rel="stylesheet" href="style.css">
-	    <title>CLOCK</title>	
-    </head>
-    <body>
-        <div class="clock" id = "clock"></div>
-	    <div class = "time">
-            <input class = "data" id="time" type="time" name="time" step="2">
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="style.css">
+    <title>CLOCK</title>
+</head>
+<body>
+	<div class="time" id = "time"></div>
+	<div class = "set-time">
+            <input class = "data" id="set" type="time" name="time" step="2" onchange="getSetTime()">
             <button class = "button" onclick="getSetTime()">Установить время</button> 
         </div>
-	    <div class = "content">
-            <canvas class="canvas" id='myCanvas' height='500' width='500' ></canvas>
-		    <img id= "photo" src="clock.jpg" alt = "clock">
-	    </div>	
-        <script src="script.js"></script>
-    </body>
+        <p id='here'></p>
+	<div class="clock" id="clock">
+		<img src="clock.jpg">
+		<div class="hours-container">
+			<div class="hours" id="hours"></div>
+		</div>
+		<div class="minutes-container">
+			<div class="minutes" id="minutes"></div>
+		</div>
+		<div class="seconds-container">
+			<div class="seconds" id="seconds"></div>			
+		</div>	
+	</div>
+<script src="script.js"></script>
+</body>
 </html>

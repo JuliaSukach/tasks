@@ -1,15 +1,11 @@
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-}
-
 :root{
     --color-white: #ffffff;
     --color-time: #f59de9;
+    --color-red: #de0000;
+    --color-black: #000;
 }
 
-.clock {
+.time {
 	margin: 0 auto;
 	padding-top: 60px;
 	font-size: 5em;
@@ -17,7 +13,7 @@
 	color: var(--color-time);
 }
 
-.time {
+.set-time {
     display: flex;
     width: 100%;
     padding: 10px 0;
@@ -35,8 +31,7 @@
     background-color: var(--color-white);
     cursor: pointer;
 }
-
-.content {
+.clock {
 	position: relative;
 	width: 96%;
 	max-width: 1000px;
@@ -50,14 +45,56 @@ img {
 	z-index: 1;
 }
 
-.canvas {
-	position: absolute;
-	top: 250px;
-	left: 250px;
-	width: 50%;
-	height: auto;
-	justify-content: center;
+.clock:after {
+  background: var(--color-black);
+  border-radius: 50%;
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 5%;
+  height: 5%;
+  z-index: 10;
 }
 
+.minutes-container, .hours-container, .seconds-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
 
+.hours {
+  background: var(--color-black);
+  height: 15%;
+  left: 48.75%;
+  position: absolute;
+  top: 35%;
+  transform-origin: 50% 100%;
+  width: 2.5%;
+  z-index: 6;
+}
 
+.minutes {
+  background: var(--color-black);
+  height: 30%;
+  left: 49%;
+  position: absolute;
+  top: 20%;
+  transform-origin: 50% 100%;
+  width: 2%;
+  z-index: 7;
+}
+
+.seconds {
+  background: var(--color-red);
+  height: 40%;
+  left: 49.5%;
+  position: absolute;
+  top: 18%;
+  transform-origin: 50% 80%;
+  width: 1%;
+  z-index: 8;
+}

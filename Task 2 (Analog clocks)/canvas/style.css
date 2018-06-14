@@ -1,0 +1,63 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+:root{
+    --color-white: #ffffff;
+    --color-time: #f59de9;
+}
+
+.clock {
+	margin: 0 auto;
+	padding-top: 60px;
+	font-size: 5em;
+	text-align: center;
+	color: var(--color-time);
+}
+
+.time {
+    display: flex;
+    width: 100%;
+    padding: 10px 0;
+    justify-content: center;
+}
+
+.time .data {
+    padding: 0 10px;
+    text-align: center;
+}
+
+.time .button {
+	margin-left: 10px;
+    padding: 0 10px;
+    background-color: var(--color-white);
+    cursor: pointer;
+}
+
+.content {
+	position: relative;
+	width: 96%;
+	max-width: 1000px;
+	margin: 0 auto;
+	justify-content: center;
+}
+
+img {
+	width: 100%;
+	height: auto;
+	z-index: 1;
+}
+
+.canvas {
+	position: absolute;
+	top: 250px;
+	left: 250px;
+	width: 50%;
+	height: auto;
+	justify-content: center;
+}
+
+
+
