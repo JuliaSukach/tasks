@@ -1,8 +1,9 @@
 window.onload = function(){
 	setInterval(fSec,1000);
-	var seconds = 0;
-	var minutes = 0;
-	var hours = 0;
+	let d = new Date();
+	let seconds = 6*d.getSeconds();
+	let minutes = 6*(d.getMinutes() + (1/60)*d.getSeconds());
+	let hours = 30*(d.getHours() + (1/60)* d.getMinutes());
 
 
 	function fSec(){
@@ -16,17 +17,15 @@ window.onload = function(){
 				minutes = 0;
 				hours = hours +30;
 			}
-
-		
 		seconds = seconds +6;
-		var data = new Date();
+		let data = new Date();
         document.getElementById("time").innerHTML = data.toLocaleTimeString();
 	}
 }
 
 function getSetTime(){
-	var set = document.getElementById('set');
-	var data = document.getElementById('here');
-	var result = new Date (set.value);
-    document.data.innerHTML = result.toLocaleTimeString();
+	let set = document.getElementById('set');
+	let data = document.getElementById('here');
+	let result = new Date (set.value);
+    data.innerHTML = result.toLocaleTimeString();
 }
