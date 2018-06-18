@@ -1,17 +1,17 @@
 window.onload = function(){
 
-	let d = new Date();
-	let seconds = 6*d.getSeconds();
-	let minutes = 6*(d.getMinutes() + (1/60)*d.getSeconds());
-	let hours = 30*(d.getHours() + (1/60)* d.getMinutes());
+	let d  = new Date();
+	let ss = 6*d.getSeconds();
+	let mm = 6*(d.getMinutes() + (1/60)*d.getSeconds());
+	let hh = 30*(d.getHours() + (1/60)* d.getMinutes());
 
 
-	fSec(hours, minutes,seconds);
+	fSec(hh, mm, ss);
 	setInterval(function () {
-		fSec (hours, minutes,seconds);
+		fSec(hh, mm, ss);
 	},1000);
 
-	function fSec(){
+	function fSec(hours, minutes, seconds){
 		document.querySelector('#seconds').style.transform = `rotate(${ seconds }deg)`;
 		document.querySelector('#minutes').style.transform = `rotate(${ minutes }deg)`;
 		document.querySelector('#hours').style.transform = `rotate(${ hours }deg)`;
@@ -26,47 +26,40 @@ window.onload = function(){
 		seconds = seconds +6;
 		let date = new Date();
         document.getElementById("time").innerHTML = date.toLocaleTimeString();
+	};
+
+	
+	let button = document.getElementById('button');
+	let input = document.getElementById('set');
+
+	//button click
+	button.addEventListener('click', SetTimeOnClick);
+	
+	// input typing
+	input.addEventListener('keyup', setTimeOnInput);
+
+	function SetTimeOnClick(){ 
+		let set = document.getElementById('set').value;
+
+		let timeArr = set.split(':');
+		let hh = +timeArr[0];
+		let mm = +timeArr[1];
+		let ss = +timeArr[2];
+
+		fSec(hh, mm, ss);
+	}
+
+	function setTimeOnInput(event) {
+		let time = event.target.value;
+		console.log(time);
+		let timeArr = time.split(':');
+		let hh = +timeArr[0];
+		let mm = +timeArr[1];
+		let ss = +timeArr[2];
+
+		fSec(hh, mm, ss);
 	}
 }
 
-//button
-/*function SetTime(){
 
-	let set = document.getElementById('set').value;
 
-	set.onclick = function() {}
-
-	let button = document.getElementById('button');
-	document.getElementById('time').innerHTML = set;
-
-	button.addEventListener('click', function(event){
-		let time = event.target.value;
-		let timeArr = time.split(':');
-     	let hh = +timeArr[0];
-    	let mm = +timeArr[1];
-    	let ss = +timeArr[2];
-
-	fSec(hh,mm,ss);
-	setInterval(function () {
-		fSec (hh, mm,ss);
-	},1000);
-}
-);
-}
-*/
-//input
-  /* let set = document.getElementById('set').value;
-   set.oninput = function() {
-   set.addEventListener("input", function(event){
-   	let time = event.target.value;
-
-   	let timeArr = time.split(':');
-
-   	let hh = +timeArr[0];
-   	let mm = +timeArr[1];
-   	let ss = +timeArr[2];
-
-   	fSec(hh, mm, ss);
-   }
-   	);
-};*/
