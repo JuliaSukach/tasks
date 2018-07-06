@@ -44,7 +44,7 @@ div .linkedin {
     height: 32px;
 }
 
-div .linkedin :hover {
+div .linkedin:hover {
     background: url(linkedin2.png);
 }
 .search-form {
@@ -61,7 +61,7 @@ div .linkedin :hover {
     color: var(--color-white);
 }
 /*почему не работает?*/
-.search ::placeholder { 
+.search::-webkit-input-placeholder { 
     color: var(--color-white);
 }
 
@@ -138,7 +138,9 @@ div .linkedin :hover {
 
 .controls {
     /*почему не сработал  justify-content: right;*/
-    margin-left: 23em;
+    /* margin-left: 23em; */
+    display: flex;
+    justify-content: flex-end;
     margin-top: 2em;
 }
 .dot {
@@ -147,6 +149,11 @@ div .linkedin :hover {
     border-radius: 50%;
     display: inline-block;
     background-color: var(--color-highlight);
+    /* margin-right: 3px; */
+}
+
+.dot + .dot {
+    margin-left: 3px;
 }
 
 .box{
