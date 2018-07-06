@@ -1,0 +1,310 @@
+:root {
+    --color-caption: #4a4a4a;
+    --color-highlight: #3bafbe;
+    --color-text: #999999;
+    --color-dark-grey: #333333;
+    --color-white: #ffffff;
+    --color-bottom-border: #e2e2e2;
+    --color-rectangle: #353535;
+    --color-grey: #666666;
+    --color-border: #d8d8d8;
+    --color-title: #848c92;
+    --color-background-footer: #252525;
+    --color-underline: #2c2c2c;
+    --color-submit-placeholder: #989898;
+    --color-copyright: #1a1a1a;
+}
+
+* {
+    margin: 0;
+    box-sizing: content-box;
+}
+.container {
+    margin: 0 auto;
+    display: block;
+    width: 1020px;
+}
+header {
+    border-top: 20px solid var(--color-highlight);
+    border-bottom: 1px solid var(--color-bottom-border);
+}
+.social {
+    margin: 2em 1.5em 0em 2em;
+    width: 20em;
+    height: 32px;
+}
+
+.icon {
+    margin-right: 1em;
+}
+
+div .linkedin {
+    background: url(linkedin.png);
+    width: 32px;
+    height: 32px;
+}
+
+div .linkedin :hover {
+    background: url(linkedin2.png);
+}
+.search-form {
+    margin: 2em 2em 0em 1.5em;
+    justify-content: right;
+}
+.search {
+    height: 32px;
+    background-color: var(--color-dark-grey);
+    border: none;
+    border-radius: 10px;
+    text-transform: capitalize;
+    padding-left: 1em;
+    color: var(--color-white);
+}
+/*почему не работает?*/
+.search ::placeholder { 
+    color: var(--color-white);
+}
+
+.button {
+    height: 32px;
+    width: 80px;
+    background-color: var(--color-highlight);
+    border-radius: 10px;
+    text-transform: uppercase;
+    color: var(--color-white);
+}
+.line{
+    display: flex;
+    justify-content: space-between;
+    
+}
+.logo {
+    margin: 2em;
+    color: var(--color-text);
+    text-transform: capitalize;
+
+}
+.logo h1 {
+    color: var(--color-caption);
+}
+
+.top-navigation {
+    margin: 2em 2em 2em 0em;
+    justify-content: right;        
+}
+.nav {
+    display: inline-block;
+    margin-top: 2.3em;
+    margin-left: 1em;
+    text-transform: uppercase;
+    color: var(--color-text);
+}
+
+.slider {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--color-bottom-border);        
+}
+
+.monitor {
+    margin: 2em;
+} 
+
+.title-here {
+    height: 250px;
+    margin: 5em 1.5em 0em 3em;
+}
+
+.caption {
+    text-transform: uppercase;
+    font-size: 2.5em;
+    color: var(--color-caption);
+}
+
+.description {
+    margin: 1.3em 0;
+    line-height: 1.4;
+    color: var(--color-text);
+}
+.more-info {
+    margin-top: 2em;
+    height: 34px;
+    width: 120px;
+    background-color: var(--color-highlight);
+    border-radius: 10px;
+    text-transform: uppercase;
+    color: var(--color-white);
+}
+
+.controls {
+    /*почему не сработал  justify-content: right;*/
+    margin-left: 23em;
+    margin-top: 2em;
+}
+.dot {
+    height: 1em;
+    width: 1em;
+    border-radius: 50%;
+    display: inline-block;
+    background-color: var(--color-highlight);
+}
+
+.box{
+    margin: 2em 0;
+}
+
+.background {
+    width: 300px;
+    height: 160px;
+    background-color: var(--color-rectangle);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-white);
+}
+
+.headline {
+    margin-top: 1.5em;
+    text-transform: uppercase;
+    color: var(--color-caption);
+}
+
+.titles h3 {
+    margin: 2em auto 0em auto;
+    width: 800px;
+    color: var(--color-grey);
+    font-style: oblique;
+    text-align: center;
+    font-size: 1.3em;
+    line-height: 1.5;
+}
+
+.service {
+    width: 30%;
+    height: 6em;
+    margin-top: 2em;
+    display: flex;
+    justify-content: space-between;
+}
+.one {
+    margin-left: 2em;
+}
+
+.two {
+    margin-left: 1em;
+    margin-right: 1em;
+}
+.three {
+    margin-right: 2em;
+}
+.border {
+    width: 90px;/*замени на em*/
+    height: 90px;
+    border: 2px solid var(--color-border);
+    position: relative;
+}
+
+.rectangle {
+   position: absolute;
+   top: 5.5%; /*поработай над */
+   left: 5.5%;  /*этим*/
+   width: 80px;
+   height: 80px;
+   background-color: var(--color-dark-grey);
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   color: var(--color-white);
+}
+.title-bottom {
+    width: 200px;
+    margin-left: 1em;
+}
+.title-bottom p:first-child {
+    margin: 0 auto 0.5em;
+    color: var(--color-highlight);
+    text-transform: capitalize;
+}
+
+.title-bottom p {
+    color: var(--color-title);  
+    line-height: 1.1;  
+}
+.shout {
+    display: flex;
+    justify-content: space-between;
+
+}
+.services {
+    display: inline-flex;
+    flex-wrap: wrap;
+    margin-bottom: 2em;
+}
+
+.communication {
+    width: 1020px;
+    background: var(--color-background-footer);
+    display: flex;
+    justify-content: space-between;
+    text-transform: capitalize;
+}
+.case {
+    width: 250px;
+    margin: 2em;
+}
+.case h3 {
+    color: var(--color-white);
+}
+
+.definition {
+    margin-top: 2em;
+    color: var(--color-text);
+    line-height: 1.4;
+}
+#Email {
+    text-transform: none;
+}
+.definition .underline {
+    color:var(--color-highlight);
+    border-bottom: 1px solid var(--color-underline);
+}
+
+#next {
+    color:var(--color-highlight); 
+    text-align: end;
+}
+
+.submit {
+    height: 32px;
+    margin-bottom: 1.5em;
+    background-color: var(--color-underline);
+    border: none;
+    border-radius: 10px;
+    padding-left: 1em;
+    color: var(--color-white);
+}
+
+.submit ::placeholder {
+   color: var(--color-submit-placeholder); 
+}
+
+.input-submit {
+    height: 32px;
+    width: 80px;
+    background-color: var(--color-highlight);
+    border-radius: 10px;
+    text-transform: uppercase;
+    color: var(--color-white);
+    font-weight: bold;
+}
+.copyright {
+    height: 4em;
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--color-copyright);
+    color: var(--color-text);
+}
+.copyright p {
+    margin: auto 1.5em;
+    text-transform: capitalize;
+}
