@@ -1,0 +1,103 @@
+:root{
+    --color-white: #ffffff;
+    --color-time: #f59de9;
+    --color-red: #de0000;
+    --color-black: #000;
+}
+
+.time {
+	margin: 0 auto;
+	padding-top: 60px;
+	font-size: 5em;
+	text-align: center;
+	color: var(--color-time);
+}
+
+.set-time {
+    display: flex;
+    width: 100%;
+    padding: 10px 0;
+    justify-content: center;
+}
+
+.time .data {
+    padding: 0 10px;
+    text-align: center;
+}
+
+.time .button {
+	margin-left: 10px;
+    padding: 0 10px;
+    background-color: var(--color-white);
+    cursor: pointer;
+}
+.clock {
+	position: relative;
+	width: 96%;
+	max-width: 1000px;
+	margin: 0 auto;
+	justify-content: center;
+}
+
+img {
+	width: 100%;
+	height: auto;
+	z-index: 1;
+}
+
+.clock:after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 10;
+  width: 5%;
+  height: 5%;
+  background: var(--color-black);
+  border-radius: 50%;
+  content: "";
+  transform: translate(-50%, -50%); 
+}
+
+.minutes-container, .hours-container, .seconds-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.hours {
+  position: absolute;
+  top: 35%;
+  left: 48.75%;
+  z-index: 6;
+  width: 2.5%;
+  height: 15%;
+  background: var(--color-black);
+  border-radius: 50%;
+  transform-origin: 50% 100%;  
+}
+
+.minutes {
+  position: absolute;
+  top: 20%;
+  left: 49%;
+  z-index: 7;
+  width: 2%;
+  height: 30%;
+  background: var(--color-black);
+  border-radius: 50%;  
+  transform-origin: 50% 100%;
+}
+
+.seconds {
+  position: absolute;
+  top: 18%;
+  left: 49.5%;
+  z-index: 8;
+  width: 1%;
+  height: 40%;
+  background: var(--color-red);
+  border-radius: 50%;
+  transform-origin: 50% 80%;  
+}
