@@ -1,0 +1,60 @@
+.slider {
+    display: grid;
+   
+    border-bottom: 1px solid var(--color-bottom-border);        
+}
+
+.block {
+  
+    display: flex;
+    justify-content: space-between;
+}
+.monitor {
+    margin: 2em;
+} 
+
+.title-here {
+    height: 250px;
+    margin: 5em 1.5em 0 3em;
+}
+
+.caption {
+    text-transform: uppercase;
+    font-size: 2.5em;
+    color: var(--color-caption);
+}
+
+.description {
+    margin: 1.3em 0;
+    line-height: 1.4;
+    color: var(--color-text);
+}
+.more-info {
+    margin-top: 2em;
+    height: 34px;
+    width: 120px;
+    background-color: var(--color-highlight);
+    border-radius: 10px;
+    text-transform: uppercase;
+    color: var(--color-white);
+}
+
+.controls {
+    /*почему не сработал  justify-content: right;*/
+    /* margin-left: 23em; */
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 2em;
+}
+.dot {
+    height: 1em;
+    width: 1em;
+    border-radius: 50%;
+    display: inline-block;
+    background-color: var(--color-highlight);
+    /* margin-right: 3px; */
+}
+
+.dot + .dot {
+    margin-left: 3px;
+}

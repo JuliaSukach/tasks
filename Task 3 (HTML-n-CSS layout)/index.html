@@ -5,59 +5,69 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="header.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="slider.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="intro.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="titles.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="footer.css" />
 </head>
 <body>
     <div class="container">
         <header class="header">
-            <div class="line">
-                <div class="social">
-                   <div class="icon linkedin"></div>
-                    <!-- <img class="icon linkedin" src="linkedin.png"> -->
-                    <img class="icon twitter" src="twitter.png">
-                    <img class="icon pinterest" src="pinterest.png">
-                    <img class="icon google" src="google.png">
-                    <img class="icon wifi" src="wifi.png"> 
+            <div class="header-part1__line line">
+                <div class="line__link link">
+                   <div class="link__icon link__icon--linkedin linkedin"></div>
+                   <div class="link__icon link__icon--twitter twitter"></div>
+                   <div class="link__icon link__icon--pinterest pinterest"></div>
+                   <div class="link__icon link__icon--google google"></div>
+                   <div class="link__icon link__icon--wifi wifi"></div>
                 </div>
-                <div class="search-form">
-                    <input type="text" class="search" name="search" placeholder="search our website...">
-                    <button class="button">search</button>
+                <div class="line__search-form search-form">
+                    <input type="text" class="search-form__input input" name="search" placeholder="search our website...">
+                    <button class="search-form__button button">search</button>
                 </div>
             </div> 
-            <div class="line"> 
-                <div class="logo">
+            <div class="header-part2__line line"> 
+                <div class="line__logo logo">
                     <h1>Freshness</h1>
                     <h3>free PSD website template</h3>
-                </div>   
-                <nav class="top-navigation">
-                    <p class="nav">home</p>
-                    <p class="nav">style demo</p>
-                    <p class="nav"> full width</p>
-                    <p class="nav">drop down</p>
-                    <p class="nav">portfolio</p>
-                    <p class="nav">gallery</p>
+                </div>
+                <button class="c-hamburger c-hamburger--rot">
+                        <span></span>
+                </button>   
+                <nav class="line__top-navigation top-navigation">
+                    <a href="javascript:;" class="top-navigation__item item">home</a>
+                    <a href="javascript:;" class="top-navigation__item item">style demo</a>
+                    <a href="javascript:;" class="top-navigation__item item">full width</a>
+                    <a href="javascript:;" class="top-navigation__item item">drop down</a>
+                    <a href="javascript:;" class="top-navigation__item item ">portfolio</a>
+                    <a href="javascript:;" class="top-navigation__item item">gallery</a>
                 </nav>
             </div>
        </header>
-       <section class="slider">
-            <img class="monitor" src="Base.png">
-            <div class="title-here">
-                <h1 class="caption">your title here</h1>
-                <div class="description">Cursuspenatisaccum ut curabitur nulla tellus tor ames a in curabitur
-                    pede. Idet mollisi eros dis orci congue elis et curabitur consequam 
-                    intesque. Curabiturpisametur in ante.
-                </div>
-                <button class="more-info">read more &raquo;</button>
-                <nav class="controls">
-                    <div class="dot"></div>
-                    <div class="dot"></div>
-                    <div class="dot"></div>
-                    <div class="dot"></div>
-                    <div class="dot"></div>
-                </nav>
-            </div>  
+      <!-- <section class="slider">
+            <div class="block">
+                <img class="monitor" src="Base.png">
+                <div class="title-here">
+                    <h1 class="caption">your title here</h1>
+                    <div class="description">Cursuspenatisaccum ut curabitur nulla tellus tor ames a in curabitur
+                           pede. Idet mollisi eros dis orci congue elis et curabitur consequam 
+                           intesque. Curabiturpisametur in ante.
+                    </div>
+                    <button class="more-info">read more &raquo;</button>
+                    <nav class="controls">
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                    </nav>
+                </div>  
+            </div>
         </section>
-        <section class="slider">
+        <section class="intro">
+            <div class="block-2">
             <article class="box one">
                 <div class="background">
                     <p>300 x 160px</p>
@@ -94,6 +104,7 @@
                     <button class="more-info">read more &raquo;</button>
                 </div>
             </article>
+        </div>
         </section>
         <section class="titles">
             <div class="shout">
@@ -103,11 +114,11 @@
             </div>
             <div class="services">
                 <article class="service one">
-                    <div class="border">
+                    
                         <div class="rectangle">
                             <p>80 x 80px</p>
                         </div>
-                    </div> 
+                    
                     <div class="title-bottom">
                         <p>title goes here</p>
                         <p>Morbit incidunt maurisque eros molest nunc antegest 
@@ -116,11 +127,11 @@
                     </div>                   
                 </article>
                 <article class="service two">
-                    <div class="border">
+                    
                         <div class="rectangle">
                             <p>80 x 80px</p>
                         </div>
-                    </div> 
+                    
                     <div class="title-bottom">
                         <p>title goes here</p>
                         <p>Morbit incidunt maurisque eros molest nunc antegest 
@@ -129,11 +140,11 @@
                     </div>                   
                 </article>
                 <article class="service three">
-                    <div class="border">
+                   
                         <div class="rectangle">
                             <p>80 x 80px</p>
                         </div>
-                    </div> 
+                   
                     <div class="title-bottom">
                         <p>title goes here</p>
                         <p>Morbit incidunt maurisque eros molest nunc antegest 
@@ -142,11 +153,11 @@
                     </div>                   
                 </article>
                 <article class="service one">
-                    <div class="border">
+                    
                         <div class="rectangle">
                             <p>80 x 80px</p>
                         </div>
-                    </div> 
+                    
                     <div class="title-bottom">
                         <p>title goes here</p>
                         <p>Morbit incidunt maurisque eros molest nunc antegest 
@@ -155,11 +166,11 @@
                     </div>                   
                 </article>
                 <article class="service two">
-                    <div class="border">
+                   
                         <div class="rectangle">
                             <p>80 x 80px</p>
                         </div>
-                    </div> 
+                    
                     <div class="title-bottom">
                         <p>title goes here</p>
                         <p>Morbit incidunt maurisque eros molest nunc antegest 
@@ -168,11 +179,11 @@
                     </div>                   
                 </article>
                 <article class="service three">
-                    <div class="border">
+                    
                         <div class="rectangle">
                             <p>80 x 80px</p>
                         </div>
-                    </div> 
+                    
                     <div class="title-bottom">
                         <p>title goes here</p>
                         <p>Morbit incidunt maurisque eros molest nunc antegest 
@@ -228,6 +239,6 @@
                 <p>copyright &copy; 2013 domain name - all rights reserved</p>
                 <p>template by OS templates</p>
             </div>
-        </footer>
+        </footer>-->
 </body>
 </html>

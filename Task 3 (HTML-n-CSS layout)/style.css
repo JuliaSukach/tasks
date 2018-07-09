@@ -19,36 +19,78 @@
     margin: 0;
     box-sizing: content-box;
 }
+
 .container {
     margin: 0 auto;
     display: block;
-    width: 1020px;
+    max-width: 1200px;
+    width: 100%;
 }
 header {
+    display: grid;
     border-top: 20px solid var(--color-highlight);
     border-bottom: 1px solid var(--color-bottom-border);
 }
+
 .social {
-    margin: 2em 1.5em 0em 2em;
+    margin: 2em 1.5em 0 2em;
     width: 20em;
     height: 32px;
 }
 
 .icon {
-    margin-right: 1em;
+    margin-right: 0.5em;
+    display: inline-block;
 }
 
 div .linkedin {
     background: url(linkedin.png);
-    width: 32px;
     height: 32px;
+    width: 32px;
 }
 
 div .linkedin:hover {
-    background: url(linkedin2.png);
+    background: url(linkedin-cursor.png);
 }
+div .twitter{
+    background: url(twitter.png);
+    height: 32px;
+    width: 32px;
+}
+div .twitter:hover {
+    background: url(twitter-cursor.png);
+}
+div .pinterest {
+    background: url(pinterest.png);
+    height: 32px;
+    width: 32px;
+}
+div .pinterest:hover {
+    background: url(pinterest-cursor.png);
+}
+
+div .google {
+    background: url(google.png);
+    height: 32px;
+    width: 32px;
+}
+
+div .google:hover {
+    background: url(google-cursor.png);
+}
+div .wifi {
+    background: url(wifi.png);
+    height: 32px;
+    width: 32px;
+}
+
+div .wifi:hover {
+    background: url(wifi-cursor.png);
+}
+
+
 .search-form {
-    margin: 2em 2em 0em 1.5em;
+    margin: 2em 2em 0 1.5em;
     justify-content: right;
 }
 .search {
@@ -60,7 +102,7 @@ div .linkedin:hover {
     padding-left: 1em;
     color: var(--color-white);
 }
-/*почему не работает?*/
+
 .search::-webkit-input-placeholder { 
     color: var(--color-white);
 }
@@ -89,7 +131,7 @@ div .linkedin:hover {
 }
 
 .top-navigation {
-    margin: 2em 2em 2em 0em;
+    margin: 2em 2em 2em 0;
     justify-content: right;        
 }
 .nav {
@@ -101,18 +143,23 @@ div .linkedin:hover {
 }
 
 .slider {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+   
     border-bottom: 1px solid var(--color-bottom-border);        
 }
 
+.block {
+  
+    display: flex;
+    justify-content: space-between;
+}
 .monitor {
     margin: 2em;
 } 
 
 .title-here {
     height: 250px;
-    margin: 5em 1.5em 0em 3em;
+    margin: 5em 1.5em 0 3em;
 }
 
 .caption {
@@ -155,20 +202,21 @@ div .linkedin:hover {
 .dot + .dot {
     margin-left: 3px;
 }
+.intro {
+    
+    display: grid;
+    
+    border-bottom: 1px solid var(--color-bottom-border);        
+}
+.block-2 {
+    display: flex;
+    justify-content: space-between;
 
+}
 .box{
     margin: 2em 0;
 }
 
-.background {
-    width: 300px;
-    height: 160px;
-    background-color: var(--color-rectangle);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--color-white);
-}
 
 .headline {
     margin-top: 1.5em;
@@ -176,8 +224,12 @@ div .linkedin:hover {
     color: var(--color-caption);
 }
 
+.titles {
+    display: grid;
+}
+
 .titles h3 {
-    margin: 2em auto 0em auto;
+    margin: 2em auto 0 auto;
     width: 800px;
     color: var(--color-grey);
     font-style: oblique;
@@ -204,19 +256,14 @@ div .linkedin:hover {
 .three {
     margin-right: 2em;
 }
-.border {
-    width: 90px;/*замени на em*/
-    height: 90px;
-    border: 2px solid var(--color-border);
-    position: relative;
-}
 
 .rectangle {
-   position: absolute;
+   border: 8px solid var(--color-white);
+   outline: 2px solid var(--color-border);
    top: 5.5%; /*поработай над */
    left: 5.5%;  /*этим*/
-   width: 80px;
-   height: 80px;
+   width: 5em;
+   height: 5em;
    background-color: var(--color-dark-grey);
    display: flex;
    align-items: center;
@@ -224,7 +271,7 @@ div .linkedin:hover {
    color: var(--color-white);
 }
 .title-bottom {
-    width: 200px;
+    width: 15em;
     margin-left: 1em;
 }
 .title-bottom p:first-child {
@@ -247,16 +294,17 @@ div .linkedin:hover {
     flex-wrap: wrap;
     margin-bottom: 2em;
 }
-
+footer {
+    display: grid;
+}
 .communication {
-    width: 1020px;
     background: var(--color-background-footer);
     display: flex;
     justify-content: space-between;
     text-transform: capitalize;
 }
 .case {
-    width: 250px;
+    width: 25%;
     margin: 2em;
 }
 .case h3 {

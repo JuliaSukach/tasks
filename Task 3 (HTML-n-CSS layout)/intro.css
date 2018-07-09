@@ -1,0 +1,21 @@
+.intro {
+    
+    display: grid;
+    
+    border-bottom: 1px solid var(--color-bottom-border);        
+}
+.block-2 {
+    display: flex;
+    justify-content: space-between;
+
+}
+.box{
+    margin: 2em 0;
+}
+
+
+.headline {
+    margin-top: 1.5em;
+    text-transform: uppercase;
+    color: var(--color-caption);
+}

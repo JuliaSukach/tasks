@@ -1,0 +1,28 @@
+:root {
+    --color-caption: #4a4a4a;
+    --color-highlight: #3bafbe;
+    --color-text: #999999;
+    --color-dark-grey: #333333;
+    --color-white: #ffffff;
+    --color-bottom-border: #e2e2e2;
+    --color-rectangle: #353535;
+    --color-grey: #666666;
+    --color-border: #d8d8d8;
+    --color-title: #848c92;
+    --color-background-footer: #252525;
+    --color-underline: #2c2c2c;
+    --color-submit-placeholder: #989898;
+    --color-copyright: #1a1a1a;
+}
+
+* {
+    margin: 0 auto;
+    box-sizing: content-box;
+}
+
+.container {
+    margin: 0 auto;
+    display: block;
+    max-width: 1200px;
+    width: 100%;
+}
