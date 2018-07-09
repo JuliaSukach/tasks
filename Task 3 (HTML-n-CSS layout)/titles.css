@@ -19,17 +19,6 @@
     display: flex;
     justify-content: space-between;
 }
-.one {
-    margin-left: 2em;
-}
-
-.two {
-    margin-left: 1em;
-    margin-right: 1em;
-}
-.three {
-    margin-right: 2em;
-}
 
 .rectangle {
    border: 8px solid var(--color-white);

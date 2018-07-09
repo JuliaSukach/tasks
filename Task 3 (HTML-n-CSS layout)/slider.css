@@ -5,33 +5,29 @@
     justify-content: space-between;       
 }
 
-.monitor {
-    
-} 
-
 .title-here {
     padding-top: 2em;
     padding-left: 4em;
 }
 
 .caption {
-    text-transform: uppercase;
     font-size: 2.5em;
+    text-transform: uppercase;
     color: var(--color-caption);
 }
 
 .description {
     padding-top: 1.3em;
     padding-right: 5em;
-    line-height: 1.4;
     font-size: 1.1em;
+    line-height: 1.4;
     color: var(--color-text);
 }
 
 .more-info {
-    margin-top: 2em;
     height: 34px;
     width: 120px;
+    margin-top: 2em;
     background-color: var(--color-highlight);
     border-radius: 10px;
     text-transform: uppercase;
@@ -44,20 +40,18 @@
   }
 
 .controls {
-    /*почему не сработал  justify-content: right;*/
-    /* margin-left: 23em; */
     display: flex;
-    justify-content: flex-end;
     margin-top: 4em;
+    justify-content: flex-end;
 }
 
 .dot {
-    height: 1em;
-    width: 1em;
-    border-radius: 50%;
     display: inline-block;
-    background-color: var(--color-highlight);
+    width: 1em;
+    height: 1em;
     margin-right: 3px;
+    background-color: var(--color-highlight);
+    border-radius: 50%;   
 }
 
 .dot + .dot {
@@ -85,8 +79,8 @@
     }
 
     .description {
-        font-size: 0.9em;
         padding-top: 1em;
+        font-size: 0.9em;
     }
 
     .more-info {
