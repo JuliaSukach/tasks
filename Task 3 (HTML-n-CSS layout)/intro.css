@@ -21,14 +21,14 @@
     color: var(--color-caption);
 }
 
-.lalala {
+.bottom {
     padding-top: 1.3em;
     font-size: 1.1em;
     line-height: 1.4;
     color: var(--color-text);
 }
 
-.pixel {
+.size {
     position: absolute;
     top: 50%;
     left: 50%;

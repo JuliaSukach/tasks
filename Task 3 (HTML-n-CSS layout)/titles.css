@@ -1,8 +1,8 @@
-.titles {
+.title {
     display: grid;
 }
 
-.titles h3 {
+.top h3 {
     display: flex;
     margin: 2em auto 0 auto;
     color: var(--color-grey);
@@ -12,13 +12,13 @@
     text-align: center; 
 }
 
-.services {
+.service {
     display: flex;
     flex-wrap: wrap;
     padding: 0 2em 2em 2em;
 }
 
-.service {
+.part {
     display: flex;
     justify-content: space-between;
     width: 355px;
@@ -56,7 +56,7 @@
     line-height: 1.1;  
 }
 
-.shout {
+.top {
     display: flex;
     justify-content: space-between;
     padding: 0 12em;
@@ -64,11 +64,11 @@
 }
 
 @media screen and (max-width: 800px) {
-    .shout {
+    .top {
         padding: 0 8em;
     }
 
-    .titles h3 {
+    .title h3 {
         font-size: 1em;        
     }
 }

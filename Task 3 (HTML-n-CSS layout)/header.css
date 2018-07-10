@@ -75,7 +75,7 @@ header {
 
 .search-form {
     margin: 0;
-    padding: 2em 2em 0 1.5em;
+    padding-right: 2em;
 }
 
 .input {

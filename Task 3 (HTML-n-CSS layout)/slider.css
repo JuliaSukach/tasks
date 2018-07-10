@@ -5,7 +5,7 @@
     justify-content: space-between;       
 }
 
-.title-here {
+.text {
     padding-top: 2em;
     padding-left: 4em;
 }
@@ -24,7 +24,7 @@
     color: var(--color-text);
 }
 
-.more-info {
+.button {
     height: 34px;
     width: 120px;
     margin-top: 2em;
@@ -35,11 +35,11 @@
     cursor: pointer;
 }
 
-.more-info:focus {
+.button:focus {
     outline: none;
   }
 
-.controls {
+.control{
     display: flex;
     margin-top: 4em;
     justify-content: flex-end;
@@ -59,17 +59,17 @@
 }
 
 @media screen and (max-width: 1045px) {
-    .controls {
+    .control{
         display: none;
     }
 }
 
 @media screen and (max-width: 920px) {
-    .title-here {
+    .text {
         padding-top: 1em;
     }
 
-    .monitor {
+    .img {
         width: 300px;
         height: 238px;
     }
@@ -83,7 +83,7 @@
         font-size: 0.9em;
     }
 
-    .more-info {
+    .button {
         margin-top: 1em;
         margin-bottom: 1em;
     }
@@ -93,7 +93,7 @@
     .slider {
         display: grid;
     }
-    .title-here {
+    .text {
         padding-top: 2.5em;
         padding-right: 4em;
         text-align: center;
