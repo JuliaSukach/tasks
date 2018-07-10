@@ -3,40 +3,48 @@
 }
 
 .titles h3 {
+    display: flex;
     margin: 2em auto 0 auto;
-    width: 800px;
     color: var(--color-grey);
     font-style: oblique;
-    text-align: center;
     font-size: 1.3em;
     line-height: 1.5;
+    text-align: center; 
+}
+
+.services {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 2em 2em 2em;
 }
 
 .service {
-    width: 30%;
-    height: 6em;
-    margin-top: 2em;
     display: flex;
     justify-content: space-between;
+    width: 355px;
+    height: 6em;
+    padding-top: 2em;
 }
 
 .rectangle {
-   border: 8px solid var(--color-white);
-   outline: 2px solid var(--color-border);
-   top: 5.5%; /*поработай над */
-   left: 5.5%;  /*этим*/
+   top: 5.5%; 
+   left: 5.5%;
+   display: flex;
+   justify-content: center;
    width: 5em;
    height: 5em;
-   background-color: var(--color-dark-grey);
-   display: flex;
-   align-items: center;
-   justify-content: center;
+   align-items: center; 
    color: var(--color-white);
+   background-color: var(--color-dark-grey);
+   border: 8px solid var(--color-white);
+   outline: 2px solid var(--color-border);  
 }
+
 .title-bottom {
     width: 15em;
     margin-left: 1em;
 }
+
 .title-bottom p:first-child {
     margin: 0 auto 0.5em;
     color: var(--color-highlight);
@@ -47,13 +55,20 @@
     color: var(--color-title);  
     line-height: 1.1;  
 }
+
 .shout {
     display: flex;
     justify-content: space-between;
+    padding: 0 12em;
 
 }
-.services {
-    display: inline-flex;
-    flex-wrap: wrap;
-    margin-bottom: 2em;
+
+@media screen and (max-width: 800px) {
+    .shout {
+        padding: 0 8em;
+    }
+
+    .titles h3 {
+        font-size: 1em;        
+    }
 }

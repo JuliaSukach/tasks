@@ -1,15 +1,21 @@
 footer {
     display: grid;
+    width: 100%;
 }
 .communication {
-    background: var(--color-background-footer);
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 100%;
+    background: var(--color-background-footer);
     text-transform: capitalize;
 }
 .case {
-    width: 25%;
-    margin: 2em;
+    width: 260px;
+    padding: 2em 0 2em 2em;
+}
+
+.case:last-child {
+    padding-right: 2em;
 }
 .case h3 {
     color: var(--color-white);
@@ -17,30 +23,24 @@ footer {
 
 .definition {
     margin-top: 2em;
-    color: var(--color-text);
     line-height: 1.4;
+    color: var(--color-text);
 }
-#Email {
-    text-transform: none;
-}
+
 .definition .underline {
     color:var(--color-highlight);
     border-bottom: 1px solid var(--color-underline);
 }
 
-#next {
-    color:var(--color-highlight); 
-    text-align: end;
-}
-
 .submit {
+    width: 220px;
     height: 32px;
     margin-bottom: 1.5em;
+    padding-left: 1em;
+    color: var(--color-white);
     background-color: var(--color-underline);
     border: none;
     border-radius: 10px;
-    padding-left: 1em;
-    color: var(--color-white);
 }
 
 .submit ::placeholder {
@@ -48,22 +48,41 @@ footer {
 }
 
 .input-submit {
-    height: 32px;
     width: 80px;
+    height: 32px;
+    color: var(--color-white);
     background-color: var(--color-highlight);
     border-radius: 10px;
     text-transform: uppercase;
-    color: var(--color-white);
     font-weight: bold;
 }
+
 .copyright {
-    height: 4em;
     display: flex;
     justify-content: space-between;
-    background-color: var(--color-copyright);
+    width: 100%;
+    height: 4em;
     color: var(--color-text);
+    background-color: var(--color-copyright);   
 }
+
 .copyright p {
     margin: auto 1.5em;
     text-transform: capitalize;
+}
+
+.ref {
+    color: var(--color-highlight);
+    text-decoration: none;
+}
+
+.read-more {
+    padding-top: 0.8em;
+    float: right;
+}
+
+@media screen and (max-width: 635px) {
+    .case:last-child {
+        padding-right: 0;
+    }
 }
