@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Task5</title>
+	<style>
+	div {
+		width: 50em;
+	}
+	</style>
+</head>
+<body>      
+        
+	<h1>Задача 5 (Array summary):</h1>
+	<div>Написать функцию summarizeArray(). Функция принимает массив, состоящий из чисел, и возвращает объект, содержащий 4 параметра: min (минимальное число массива), max (максимальное число массива), sum (сумма всех элементов массив), avg (среднее арифметическое элементов массива). 
+	</div>
+	<p>Пример:</p>
+	<p>summarizeArray([1, 2, 3, 4, 5]) // выведет в консоль { min: 1, max: 5, sum: 15, avg: 3 }</p>
+    <p>summarizeArray([]) // выведет в консоль { min: null, max: null, sum: null, avg: null }</p>
+    <p>summarizeArray([10]) // выведет в консоль { min: 10, max: 10, sum: 10, avg: 10 }</p>
+
+	<script>     
+
+    function summarizeArray(array) {
+
+        //find min
+        let min = Math.min(...array);
+
+        //find max
+        let max = Math.max(...array);
+
+        //find summ
+        let newArr = [];
+        let sum = 0;
+        
+        newArr = array.forEach(function(element) {
+           sum += element; 
+        });
+
+        //find number
+        let count = array.length;
+
+        let object = {
+            min: min, 
+            max: max, 
+            sum: sum, 
+            avg: sum/count
+        }
+        console.log(object);        
+    }
+
+    let arr = [1, 2, 3, 4];
+    
+    summarizeArray (arr);
+	</script> 
+</body>
+</html>

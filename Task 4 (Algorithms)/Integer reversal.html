@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Task1</title>
+	<style>
+	div {
+		width: 50em;
+	}
+	</style>
+</head>
+<body>
+	<h1>Задача 1 (Integer reversal)</h1>
+	<div>Написать функцию reverseInteger(). Функция принимает целое число (положительное или отрицательное) и возвращает новое, состоящее из цифр первоначального числа, составленных в обратном порядке.
+	</div>
+	<p>Пример:</p>
+	<p>reverseInteger(123) // выведет в консоль 321 </p>
+    <p>everseInteger(-3050) // выведет в консоль -503 </p>
+
+	<script>
+        
+        function reverseInteger (n) {
+            n = n + "";
+            return n.split('').reverse().join("");
+        }
+        console.log(reverseInteger(123));
+	</script>
+</body>
+</html>

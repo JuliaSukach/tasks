@@ -26,51 +26,51 @@ header {
 .linkedin {
     width: 32px;
     height: 32px;
-    background: url(linkedin.png);
+    background: url(images/linkedin.png);
 }
 
 .linkedin:hover {
-    background: url(linkedin-cursor.png);
+    background: url(images/linkedin-cursor.png);
 }
 
 .twitter {
     width: 32px;
     height: 32px;
-    background: url(twitter.png);  
+    background: url(images/twitter.png);  
 }
 
 .twitter:hover {
-    background: url(twitter-cursor.png);
+    background: url(images/twitter-cursor.png);
 }
 
 .pinterest {
     width: 32px;
     height: 32px;
-    background: url(pinterest.png);
+    background: url(images/pinterest.png);
 }
 
 .pinterest:hover {
-    background: url(pinterest-cursor.png);
+    background: url(images/pinterest-cursor.png);
 }
 
 .google {
     width: 32px;
     height: 32px;
-    background: url(google.png);   
+    background: url(images/google.png);   
 }
 
 .google:hover {
-    background: url(google-cursor.png);
+    background: url(images/google-cursor.png);
 }
 
 .wifi {
     width: 32px;
     height: 32px;
-    background: url(wifi.png); 
+    background: url(images/wifi.png); 
 }
 
 .wifi:hover {
-    background: url(wifi-cursor.png);
+    background: url(images/wifi-cursor.png);
 }
 
 .search-form {

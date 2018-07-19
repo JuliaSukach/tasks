@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Task4</title>
+	<style>
+	div {
+		width: 50em;
+	}
+	</style>
+</head>
+<body>      
+	<h1>Задача 4 (Palindrome):</h1>
+	<div>Написать функцию checkPalindrome(). Функция принимает строку и возвращает true, если исходная строка является палиндромом. 
+	</div>
+	<p>Пример:</p>
+	<p>checkPalindrome(“Red rum, sir, is murder”) // выведет в консоль true</p>
+    <p>checkPalindrome(“Hello world”) // выведет в консоль false</p>
+
+	<script>
+        function checkPalindrome(palindrome) {
+            let arr = palindrome.split("");
+                arr = arr.filter(function (value, index, arr) {
+                    if (arr.indexOf(value) !== arr.lastIndexOf(value)){
+                        console.log(true);
+                    }
+                    else {
+                        console.log(false);
+                    }
+                });
+        }
+
+        let PalindromeWord = 'red rum, sir, is murderollo';
+        checkPalindrome(PalindromeWord);     
+	</script>
+</body>
+</html>

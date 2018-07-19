@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Task3</title>
+	<style>
+	div {
+		width: 50em;
+	}
+	</style>
+</head>
+<body>
+    	
+	<h1>Задача 3 (Max character):</h1>
+	<div>Написать функцию findMaxCharacter(). Функция принимает строку и возвращает символ, встречающийся в этой строке большее количество раз (если таких символов больше одного, то они все отображаются в результате).
+	</div>
+	<p>Пример:</p>
+	<p>findMaxCharacter(“Hi people”) // выведет в консоль “p”, “e”</p>
+    <p>findMaxCharacter(“Appearance”) // выведет в консоль “a”</p>
+
+	<script>
+
+        function findMaxCharacter (string) {
+		    let arr = string.split("");
+            let result = {};
+                for(let iter = 0; iter < arr.length; iter++) {
+                    let count = result[arr[iter]];
+                    if (count) {
+                        result[arr[iter]] = count + 1;
+                    } 
+					else {
+                        result[arr[iter]] = 1;
+                    }
+                }
+		    console.log(result);
+	
+            let newArr = Object.values(result);
+            let max = Math.max(...newArr);
+
+            console.log(max);
+		}
+		let str = 'Appearance';
+		findMaxCharacter (str);
+	</script>
+</body>
+</html>

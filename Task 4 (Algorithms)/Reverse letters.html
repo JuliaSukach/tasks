@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Task2</title>
+	<style>
+	div {
+		width: 50em;
+	}
+	</style>
+</head>
+<body>
+	<h1>Задача 2 (Reverse letters):</h1>
+	<div>Написать функцию reverseLettersInWord(). Функция принимает строку и возвращает новую, в которой буквы каждого слова составлены в обратном порядке. 
+	</div>
+	<p>Пример:</p>
+	<p>reverseLettersInWord(“I am string”) // выведет в консоль “I ma gnitrs”</p>
+    <p>reverseLettersInWord(“Whatever”) // выведет в консоль “revetahW”</p>
+
+	<script>
+        function reverseLettersInWord(stringToSplit, separator) {
+
+        	let wordArr = stringToSplit.split(separator);
+
+			for (let i = 0; i < wordArr.length; i++) {
+
+				let NewWordArr = wordArr[i].split('').reverse().join("");
+				console.log(NewWordArr);
+			}     
+        }
+        let expamle1 = 'I am a string';
+        let space = ' ';
+
+        reverseLettersInWord (expamle1, space);     
+	</script>
+</body>
+</html>
