@@ -19,10 +19,17 @@
 	<script>
         
         function reverseInteger (n) {
-            n = n + "";
-            return n.split('').reverse().join("");
+        	let newN = Math.abs(n);
+            newN = newN + " ";
+            if (n < 0) {
+            	return ('-'+ newN.split('').reverse().join(""));
+            }
+            else{
+            	return newN.split('').reverse().join("");
+            }
+            
         }
-        console.log(reverseInteger(123));
+        console.log(reverseInteger(-123));
 	</script>
 </body>
 </html>
