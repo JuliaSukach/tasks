@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Task7</title>
+	<style>
+	div {
+		width: 50em;
+	}
+	</style>
+</head>
+<body>
+    	
+	<h1>Задача 7 (Array chunking):</h1>
+	<div>Написать функцию splitArrayOnChunks(). Функция принимает 2 параметра: array и size. Необходимо разделить итоговой массив array на части (массивы), в которых будет содержаться указанное в параметре size количество элементов. В случае, если size больше или равен длины массива array, то функция должна вернуть исходный массив.
+	</div>
+	<p>Пример:</p>
+	<p>splitArrayOnChunks([1, 2, 3, 4, 5], 2) // выведет в консоль [1, 2] , [3, 4], [5]</p>
+    <p>splitArrayOnChunks([1, 2, 3, 4, 5], 3) // выведет в консоль [1, 2, 3] , [4 ,5]</p>
+    <p>splitArrayOnChunks([1, 2, 3, 4, 5], 6) // выведет в консоль [1, 2 ,3, 4, 5]</p>
+
+	<script>
+		
+		function splitArrayOnChunks (array, size){
+			let res = [];
+			for (; array.length;) {
+                res.push(array.splice(0, size));
+            }
+            return res;
+        }
+
+		let first = [1,2,3,4,5];
+		let second = 6;
+		console.log(splitArrayOnChunks(first, second));
+      
+	</script>
+</body>
+</html>
+	
+

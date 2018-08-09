@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Task6</title>
+	<style>
+	div {
+		width: 50em;
+	}
+	</style>
+</head>
+<body>
+    	
+    <h1>Задача 6 (Bracket index):</h1>
+	<div>Написать функцию findIndexOfClosingBracket(). Функция принимает 2 параметра:  string и index. Index - это индекс открывающейся скобки (при этом строка может состоять только из букв, цифр и других символов, но без знаков пробелов. Также допускаются только круглые скобки). Необходимо вернуть индекс, соответствующий закрывающейся скобке. Индексы начинаются с нуля. В случае, если ответа нет, то вернуть индекс -1. </div>
+	<p>Пример:</p>
+	<p>findIndexOfClosingBracket(“((2)33(67))((bb))”, 0) // выведет в консоль 10,  т.к. открывающейся скобке на позиции 0 соответствует закрывающаяся на позиции 10</p>
+    <p>findIndexOfClosingBracket(“((2)33(67))((bb))”, 2) // выведет в консоль -1, т.к. на позиции 2 нет открывающейся скобки</p>
+
+	<script>
+		
+		function findIndexOfClosingBracket(string, index) {
+
+			let array = string.split("");
+			let count = 0;
+			
+            for(let i = index; i < array.length; i++) {
+            	for (let y = index; y < array.length; y++) {
+            		if (array[i] == "(" ) {
+            			count += count;
+            		}
+            		else (array[y] == ")") 
+            			count -= count;
+            		
+            	}
+            }
+            console.log(count);
+        }
+		let example = "((2)33(67))((bb))";
+		let number = 3;
+		console.log(findIndexOfClosingBracket(example, number));
+	</script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Task9</title>
+	<style>
+	div {
+		width: 50em;
+	}
+	</style>
+</head>
+<body>
+    	
+    <h1>Задача 9 (Sum of two):</h1>
+	<div>Написать функцию sumOfTwo(). Функция принимает 2 параметра: array и sum. Необходимо вернуть массивы, состоящие из пар чисел, взятых из исходного массива, сумма которых (чисел) равняется параметру sum. Каждое из чисел исходного массива может быть использовано несколько раз. </div>
+	<p>Пример:</p>
+	<p>sumOfTwo([1, 2, 3], 3) // выведет в консоль [1, 2]</p>
+    <p>sumOfTwo([1, 2, 2, 3, 4], 4) // выведет в консоль [2, 2], [1, 3]</p>
+
+	<script>
+		
+		function sumOfTwo(array, sum) {
+
+	    let result = [];
+            for(let i = 0; i < array.length; i++) {
+                let count = array[i];
+                for ( let j = i + 1; j < array.length; j++) {
+                	if ( array[i] + array[j] !== sum) continue;
+                	else {
+                		result.push(array[i], array[j]);
+                	}
+                }   
+            }
+        let couple = [];
+			for (; result.length;) {
+                couple.push(result.splice(0, 2));
+            }
+            return couple;
+        }
+		let first = [1, 2, 2, 3, 4];
+		let second = 4;
+        console.log(sumOfTwo(first, second));
+
+	</script>
+</body>
+</html>

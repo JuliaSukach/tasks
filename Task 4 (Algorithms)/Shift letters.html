@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Task10</title>
+	<style>
+	div {
+		width: 50em;
+	}
+	</style>
+</head>
+<body>
+    	
+    <h1>Задача 10 (Shift letters):</h1>
+	<div>Написать функцию shiftLetters(). Функция принимает 2 параметра: string и shift (число). Необходимо вернуть строку, в который каждый символ сдвинут на число позиций, равное shift, относительно его исходной позиции в алфавите. Если достигается последний символ алфавита, то сдвиг должен продолжать с начала алфавита. Специальные символы остаются без изменений, а регистр букв должен сохраняться.
+</div>
+	<p>Пример:</p>
+	<p>shiftLetters(“I am string”, 4) // выведет в консоль "M eq wxvmrk"</p>
+    <p>shiftLetters(“Wow!”, 5) // выведет в консоль "Btb!"</p>
+    <p>shiftLetters(“JS academy”, 44) // выведет в консоль "BK susvweq"</p>
+ 
+	<script>
+		function shiftLetters(string, shift) {
+			let abc = "abcdefghijklmnopqrstuvwxyz"
+			let arrABC = abc.split("");
+			let phraseArr = string.split("");
+			let shiftArr = [];
+			let count = 0;
+			for (i = 0; i < arrABC.length; i++) {
+				for (j = 0; j < shiftArr.length; j++) {
+					if (arrABC[i] == phraseArr[j]) {
+					shiftArr.push(arrABC[i]);
+                    
+				}
+				console.log(shiftArr);
+				}
+			}
+			return shiftArr; 
+        }
+		let phrase = "i am string";
+		let number = 4;
+		console.log(shiftLetters(phrase, number));
+		
+		
+	</script>
+</body>
+</html>

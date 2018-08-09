@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Task8</title>
+	<style>
+	div {
+		width: 50em;
+	}
+	</style>
+</head>
+<body>
+
+	<h1>Задача 8 (Reverse array):</h1>
+	<div>Написать функцию reverseArray(). Функция принимает массив и возвращает новый, в котором элементы составлены в обратном порядке. Использовать встроенный метод Array.prototype.reverse() запрещается!
+	</div>
+	<p>Пример:</p>
+	<p>reverseArray([1, 2, 3, 4, 5]) // выведет в консоль [5, 4, 3, 2, 1]</p>
+    <p>reverseArray([1, 2, 3]) // выведет в консоль [3, 2, 1]</p>
+
+	<script>
+		
+		function reverseArray(array){
+			let newarray = [];
+			for (let i = array.length-1; i >= 0; i--) {
+                newarray.push(array[i]);
+            }
+            return newarray;
+           // console.log(newarray);
+        }
+
+		let arr = [1, 2, 3, 4, 5];
+		console.log(reverseArray(arr));
+      
+	</script>
+</body>
+</html>

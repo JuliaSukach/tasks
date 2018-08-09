@@ -22,11 +22,20 @@
 
     function summarizeArray(array) {
 
+        let object = {
+            min: null, 
+            max: null, 
+            sum: null, 
+            avg: null
+        }
+
         //find min
         let min = Math.min(...array);
+        object.min = min;
 
         //find max
         let max = Math.max(...array);
+        object.max = max;
 
         //find summ
         let newArr = [];
@@ -35,22 +44,18 @@
         newArr = array.forEach(function(element) {
            sum += element; 
         });
+        object.sum = sum;
 
         //find number
         let count = array.length;
+        object.avg = sum/count;
 
-        let object = {
-            min: min, 
-            max: max, 
-            sum: sum, 
-            avg: sum/count
-        }
-        console.log(object);        
+        return object;        
     }
 
-    let arr = [1, 2, 3, 4];
+    let arr = [1, 2, 3, 4, 5];
     
-    summarizeArray (arr);
+    console.log(summarizeArray (arr));
 	</script> 
 </body>
 </html>
