@@ -20,26 +20,106 @@
  
 	<script>
 		function shiftLetters(string, shift) {
-			let abc = "abcdefghijklmnopqrstuvwxyz"
-			let arrABC = abc.split("");
-			let phraseArr = string.split("");
-			let shiftArr = [];
-			let count = 0;
-			for (i = 0; i < arrABC.length; i++) {
-				for (j = 0; j < shiftArr.length; j++) {
-					if (arrABC[i] == phraseArr[j]) {
-					shiftArr.push(arrABC[i]);
+			
+			// Создаем строку с символами алфавита и константу с кол-вом 
+			// букв в алфавите.
+			let alphabetStr = 'abcdefghijklmnopqrstuvwxyz';
+
+			const ALPHABET_LENGTH = alphabetStr.length; // 26
+
+			// Важно: если мы передадим в shift большое число (например, 65, 124 и т.д.)
+			// то программа сломается, т.к. данные числа содержат число 26 (длина алфавита) больше, чем 1 раз.
+			// Чтобы этого избежать мы отнимает от shift длину алфавита (26)
+			// умноженную на число вхождений в shift и перезаписываем данный параметр
+			shift = shift - ALPHABET_LENGTH * Math.floor(shift / ALPHABET_LENGTH);
+
+			// Далее, преобразуем ее в массив
+			let alphabetArr = alphabetStr.split('');
+			
+			// На основе этого массива создаем 2 объекта. В первом:
+			// Ключ - это буква алфавита
+			// Значение - это индекс (позиция) данной буквы в алфавите
+			// Во втором все наоборот.
+			let alphabetObj        = {};
+			let reverseAlphabetObj = {};
+
+			alphabetArr.forEach((letter, index) => {
+				let position = index + 1;
+
+				alphabetObj[letter]          = position;
+				reverseAlphabetObj[position] = letter;
+			});
+
+			// Далее, переданную строку string преобразуем в массив.
+			// Его длину также, заранее, заносим в переменную
+			let stringArr = string.split('');
+			let stringArrLength = stringArr.length;
+
+			// Проходимся по массиву с элементами переданной строки. 
+			// Находим индекс каждого символа, затем прибавляем к нему значение shift
+			// и получаем индекс нового элемента. Новый элемент добавляем в итоговую строку.
+			// Примечание: если итоговый индекс больше 26, то отсчет начинаем с 1 индекса.
+			//             если элемент не найден в объекте (т.е. не символ алфавита), то 
+			//             просто добавляем его в итоговую строку.
+			let shiftedString = '';
+
+			for (let i = 0; i < stringArrLength; i++) {
+				let originalSymbol   = stringArr[i];
+				let lowerCasedSymbol = originalSymbol.toLowerCase();
+
+				let symbolIndex = alphabetObj[lowerCasedSymbol];
+
+				if (symbolIndex) {
+					let newSymbolIndex = symbolIndex + shift;
+
+					if (newSymbolIndex > ALPHABET_LENGTH) {
+						newSymbolIndex -= ALPHABET_LENGTH;
+					};
+					
+					let newSymbol = reverseAlphabetObj[newSymbolIndex];
+
+					// Тут проверяем, был старый символ заглавным. Если да, то 
+					// новый тоже делаем заглавным
+					if (originalSymbol === originalSymbol.toUpperCase()) {
+						newSymbol = newSymbol.toUpperCase()
+					};
+
+					shiftedString += newSymbol;
+				}
+				else {
+					shiftedString += originalSymbol;
+				}
+			};
+
+			// Выводим итоговый результат
+			return console.info(shiftedString);
+
+			// let abc = "abcdefghijklmnopqrstuvwxyz";
+			// let arrABC = abc.split("");
+			// let phraseArr = string.split("");
+			// let shiftArr = [];
+			// let count = 0;
+			// for (i = 0; i < arrABC.length; i++) {
+			// 	for (j = 0; j < shiftArr.length; j++) {
+			// 		if (arrABC[i] == phraseArr[j]) {
+			// 		shiftArr.push(arrABC[i]);
                     
-				}
-				console.log(shiftArr);
-				}
-			}
-			return shiftArr; 
-        }
-		let phrase = "i am string";
-		let number = 4;
-		console.log(shiftLetters(phrase, number));
+			// 	}
+			// 	console.log(shiftArr);
+			// 	}
+			// }
+			// return shiftArr; 
+		}
 		
+		// let phrase = "i am string";
+		// let number = 4;
+		// // console.log(shiftLetters(phrase, number));
+		
+		// shiftLetters(phrase, number);
+
+		shiftLetters('I am string', 4) // выведет в консоль "M eq wxvmrk"
+		shiftLetters('Wow!', 5) // выведет в консоль "Btb!"
+		shiftLetters('JS academy', 44) // выведет в консоль "BK susvweq"		
 		
 	</script>
 </body>
