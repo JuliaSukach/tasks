@@ -19,25 +19,73 @@
 	<script>
 		
 		function findIndexOfClosingBracket(string, index) {
-
-			let array = string.split("");
-			let count = 0;
+			// Открывающую и закрывающую скобки лучше вынести в константы
+			const OPENING_BRACKET = '(';
+			const CLOSING_BRACKET = ')';
 			
-            for(let i = index; i < array.length; i++) {
-            	for (let y = index; y < array.length; y++) {
-            		if (array[i] == "(" ) {
-            			count += count;
-            		}
-            		else (array[y] == ")") 
-            			count -= count;
+			// Далее, разбиваем строку на символы и создаем массив.
+			// Важно: значение длины массива лучше сохранить заранее в переменную,
+			// чтобы оно не пересчитывалось заново в каждом проходе цикла for.
+			// Это очень дорогостоящая операция с т.з. производительности.
+			let symbolsArray       = string.split('');
+			let symbolsArrayLength = symbolsArray.length;
+
+			// Сразу стоит добавить проверку: действительно ли на переданном индексе 
+			// находится открывающая скобка. Если нет, то ничего не выполнять.
+			if (symbolsArray[index] !== OPENING_BRACKET) {
+				return console.error('Элемент с переданным индексом не соответствует открывающей скобке!');
+			};
+
+			// Создаем счетчик, который будет хранить кол-во найденных открывающих скобок.
+			// Начальное значение 1, т.к. мы начинаем с индекса, на котором уже есть открывающая скобка.
+			let openingBracketsCount = 1;
+
+			// Далее, проходим по массиву элементов строки. Если находит открывающую скобку, 
+			// то увеличиваем значение счетчика. Если закрывающую, то уменьшаем.
+			// При этом каждый раз проверяем значение счетчика. Момент, когда оно будет равно 0
+			// и будет означать, что мы нашли нужную закрывающую скобку.
+			for (let i = index + 1; i < symbolsArrayLength; i++) {
+				if (symbolsArray[i] === OPENING_BRACKET) {
+					openingBracketsCount += 1;
+				}
+				else if (symbolsArray[i] === CLOSING_BRACKET) {
+					openingBracketsCount -= 1;
+				};
+
+				if (openingBracketsCount === 0) {
+					return console.info(`Закрывающая скобка находится на индексе: ${ i }`);
+				};
+			};
+			
+			// Если цикл прошел, а значение счетчика больше 0, то значит в строке
+			// нет соответствующей закрывающей скобки. Возвращаем сообщение пользователю.
+			return console.warn('Соответствующая закрывающая скобка не найдена!', -1);
+
+
+			// let array = string.split("");
+			// let count = 0;
+			
+            // for(let i = index; i < array.length; i++) {
+            // 	for (let y = index; y < array.length; y++) {
+            // 		if (array[i] == "(" ) {
+            // 			count += count;
+            // 		}
+            // 		else (array[y] == ")") 
+            // 			count -= count;
             		
-            	}
-            }
-            console.log(count);
-        }
-		let example = "((2)33(67))((bb))";
-		let number = 3;
-		console.log(findIndexOfClosingBracket(example, number));
+            // 	}
+            // }
+            // console.log(count);
+		};
+		
+		let example = "(((2)33(67))((bb))";
+		// let number = 0;
+
+		findIndexOfClosingBracket(example, 0);
+		findIndexOfClosingBracket(example, 1);
+		findIndexOfClosingBracket(example, 6);
+
+		// console.log(findIndexOfClosingBracket(example, number));
 	</script>
 </body>
 </html>
