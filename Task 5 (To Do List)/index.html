@@ -8,7 +8,7 @@
     <link rel="stylesheet" media="screen" href="style.css">
 </head>
 <body>
-    <div class="container">
+    <div class="container" id="container">
       <p>
         <label for="new-task">Add Item</label>
         <input class = "new-task" id="new-task" type="text">
@@ -17,7 +17,30 @@
       
       <h3>Todo</h3>
       <ul class="incomplete-tasks" id="incomplete-tasks">
+      
+      
       </ul>
+      <button class="clear" id="clear">Clear</button>
+      <div id="clear-container">
+          <form id="clear-form">
+              <div id="clear-message">List will be delete complitely. Continue?</div>
+              <input class = "button-clear" id = "button-clear" type = "button" name = "clear" value="Yes">
+              <input class = "button-unclear" id = "button-unclear" type = "button" name = "unclear" value="No">
+          </form>
+      </div>  
+      <div id="delete-container">
+          <form id="delete-form">
+              <div id="delete-message">This is item will be delete. Continue?</div>
+              <input class = "button-yes" id = "button-yes" type = "button" name = "again" value="Yes">
+              <input class = "button-no" id = "button-no" type = "button" name = "finish" value="No">
+          </form>
+      </div>
+      <div id="prompt-form-container">
+          <form id="prompt-form">
+              <input class = "button-save" id = "button-save" type = "button" name = "save" value="Save">
+              <input class = "button-cancel" id = "button-cancel" type = "button" name = "cancel" value="Cancel">
+          </form>
+      </div>
     </div>
     <script src="script.js"></script>
 </body>

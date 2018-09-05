@@ -131,19 +131,19 @@ function showCover() {
       document.body.appendChild(coverDiv);
     }
 
-    function hideCover() {
+function hideCover() {
       document.body.removeChild(document.getElementById('cover-div'));
     }
 
-    function showPrompt(text) {
+function showPrompt(text) {
       showCover();
       let form = document.getElementById('prompt-form');
       let container = document.getElementById('prompt-form-container');
       document.getElementById('prompt-message').innerHTML = text;
      
-      form.elements.again.onclick = function() {
+    /*  form.elements.again.onclick = function() {
         location.reload();
-      };
+      };*/
 
       container.style.display = 'block';
      // form.elements.text.focus();

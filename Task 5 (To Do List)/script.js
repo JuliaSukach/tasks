@@ -1,22 +1,21 @@
 let taskInput=document.getElementById("new-task");//Add a new task.
 let addButton=document.getElementsByTagName("button")[0];//first button
 let incompleteTaskHolder=document.getElementById("incomplete-tasks");//ul of #incomplete-tasks
+let clearAll = document.getElementById('clear'); //delete all tasks
 
 
 //New task list item
 let createNewTaskElement=function(taskString){
 
 	let listItem=document.createElement("li");
-
 	//input (checkbox)
-	let checkBox=document.createElement("input");//checkbx
+	let checkBox=document.createElement("input");//checkbox
 	//label
 	let label=document.createElement("label");//label
 	//input (text)
 	let editInput=document.createElement("input");//text
 	//button.edit
 	let editButton=document.createElement("button");//edit button
-
 	//button.delete
 	let deleteButton=document.createElement("button");//delete button
 
@@ -25,12 +24,14 @@ let createNewTaskElement=function(taskString){
 	checkBox.type="checkbox";
 	editInput.type="text";
     
-	editButton.innerText="Edit";//innerText encodes special characters, HTML does not.
+    label.id = 'label';
+    listItem.id = 'add';
+	editButton.innerText="Edit";
 	editButton.className="edit";
 	deleteButton.innerText="Delete";
 	deleteButton.className="delete";
 
-	//and appending.
+	//appending.
 	listItem.appendChild(checkBox);
 	listItem.appendChild(label);
 	listItem.appendChild(editInput);
@@ -42,51 +43,17 @@ let createNewTaskElement=function(taskString){
 let addTask=function(){
 	console.log("Add Task...");
 	//Create a new list item
-	let listItem=createNewTaskElement(taskInput.value);
+	let listItem = createNewTaskElement(taskInput.value);
 	if (taskInput.value == "") {
 		alert ("You must write something");
 		//addButton.disabled = true;
 	}
-
 	else {
 		//addButton.disabled = false;
 	    incompleteTaskHolder.appendChild(listItem);
 	    bindTaskEvents(listItem, taskIncomplete);
 	}
-}
-
-//Edit an existing task.
-
-let editTask=function(){
-console.log("Edit Task...");
-console.log("Change 'edit' to 'save'");
-
-let listItem=this.parentNode;
-
-let editInput=listItem.querySelector('input[type=text]');
-let label=listItem.querySelector("label");
-let containsClass=listItem.classList.contains("editMode");
-		//If class of the parent is .editmode
-	if(containsClass) {
-
-		label.innerText=editInput.value;
-	}
-	else {
-
-		editInput.value=label.innerText;
-	}
-		//toggle .editmode on the parent.
-	listItem.classList.toggle("editMode");
-}
-
-//Delete task.
-let deleteTask=function(){
-	console.log("Delete Task...");
-
-	let listItem=this.parentNode;
-	let ul=listItem.parentNode;
-	//Remove the parent list item from the ul.
-	ul.removeChild(listItem);
+	taskInput.value = "";
 }
 
 let taskIncomplete=function(){
@@ -102,21 +69,139 @@ addButton.addEventListener("click",addTask);
 
 let bindTaskEvents=function(taskListItem,checkBoxEventHandler){
 	console.log("bind list item events");
-//select ListItems children
+    //select ListItems children
 	let checkBox=taskListItem.querySelector("input[type=checkbox]");
 	let editButton=taskListItem.querySelector("button.edit");
 	let deleteButton=taskListItem.querySelector("button.delete");
+	let clearAll = taskListItem.querySelector('button.clear');
 
-			//Bind editTask to edit button.
-			editButton.onclick=editTask;
-			//Bind deleteTask to delete button.
-			deleteButton.onclick=deleteTask;
-			//Bind taskCompleted to checkBoxEventHandler.
-			checkBox.onchange=checkBoxEventHandler;
+	    //Bind editTask to edit button.
+	    editButton.onclick=showPrompt;
+		//Bind deleteTask to delete button.
+	    deleteButton.onclick=showDeletePrompt;
+		//Bind taskCompleted to checkBoxEventHandler.
+		checkBox.onchange=checkBoxEventHandler;
 }
 
-for (let i=0; i<incompleteTaskHolder.length;i++){
+for (let i = 0; i < incompleteTaskHolder.length; i++) {
 
 	bindTaskEvents(incompleteTaskHolder[i],taskIncomplete);
 
+}
+
+function showCover() {
+    let coverDiv = document.createElement('div');
+    coverDiv.id = 'cover-div';
+    document.body.appendChild(coverDiv);
+}
+
+function showPrompt(text) {
+    Cover();
+    let form = document.getElementById('prompt-form');
+    let container = document.getElementById('prompt-form-container');
+    let editInput=document.createElement("input");
+
+    editInput.id = 'editInput';
+    form.appendChild(editInput);
+
+    let labelEdit = document.getElementById('label');
+
+    editInput.value = labelEdit.innerText;
+    
+    form.elements.save.onclick = function() {
+     
+       labelEdit.innerText =  editInput.value;
+       document.body.removeChild(document.getElementById('delete-div'));
+       container.style.display = 'none';
+
+    };
+
+    form.elements.cancel.onclick = function() {
+
+       document.body.removeChild(document.getElementById('delete-div'));
+       container.style.display = 'none';
+
+    }
+
+    container.style.display = 'block';
+} 
+
+let showClearList = function() {
+
+	clearAll.style.display = 'block';
+
+}
+
+let hideClearList = function() {
+
+	clearAll.style.display = 'none';
+
+}
+
+addButton.onclick = showClearList;
+addButton.addEventListener('click', showClearList);
+
+/*function ClearCover() {
+    let clearDiv = document.createElement('div');
+    clearDiv.id = 'clear-div';
+    document.body.appendChild(clearDiv);
+}
+
+function showClearPrompt(text) {
+    ClearCover();
+    let formClear = document.getElementById('clear-form');
+    let containerClear = document.getElementById('clear-container');
+
+    formClear.elements.clear.onclick = function() {
+     
+    };
+
+    formClear.elements.unclear.onclick = function() {
+
+       let nn = document.getElementById('clear-div');
+       nn.style.display = 'none';
+       containerClear.style.display = 'none';
+
+    }
+
+    containerClear.style.display = 'block';
+}
+
+clearAll.onclick = showClearPrompt;
+clearAll.addEventListener('click', showClearPrompt*/
+function Cover() {
+    let deleteDiv = document.createElement('div');
+    deleteDiv.id = 'delete-div';
+    document.body.appendChild(deleteDiv);
+}
+
+function showDeletePrompt(text) {
+    Cover();
+    let formDelete = document.getElementById('delete-form');
+    let containerDelete = document.getElementById('delete-container'); 
+    console.log("Delete Task...");
+
+    formDelete.elements.again.onclick = function() {
+       let ul = document.getElementById('incomplete-tasks');
+       let li = document.getElementById('add');
+       let lala = ul.removeChild(li);
+       let bb = ul.firstChild;
+       console.log(bb);
+       if (!ul.firstChild) {
+
+       	
+       }
+     
+      hideClearList();
+	  document.body.removeChild(document.getElementById('delete-div'));
+       containerDelete.style.display = 'none';
+	  
+    };
+
+    formDelete.elements.finish.onclick = function() {
+       document.body.removeChild(document.getElementById('delete-div'));
+       containerDelete.style.display = 'none';
+    }
+ 
+    containerDelete.style.display = 'block';
 }
