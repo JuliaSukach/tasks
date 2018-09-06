@@ -135,9 +135,6 @@ ul li.editMode label {
   vertical-align: middle;
 }
 
-#clear-div:before {
-  display: inline-block;
-}
 
 #cover-div, #delete-div, #clear-div {
   position: fixed;
