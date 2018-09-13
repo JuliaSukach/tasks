@@ -25,19 +25,32 @@ let createNewTaskElement=function(taskString){
 	editInput.type="text";
     
     label.id = 'label';
+    label.className="label";
     listItem.id = 'add';
+
 	editButton.innerText="Edit";
 	editButton.className="edit";
 	deleteButton.innerText="Delete";
-	deleteButton.className="delete";
+    deleteButton.className="delete";
 
+    checkBox.className="checkbox";
+    
 	//appending.
 	listItem.appendChild(checkBox);
 	listItem.appendChild(label);
 	listItem.appendChild(editInput);
 	listItem.appendChild(editButton);
 	listItem.appendChild(deleteButton);
-	return listItem;
+    return listItem;
+    
+    //click label ---> input checked
+/*   let inputs = document.querySelectorAll('label'); 
+    for (let i = 0; i < inputs.length; i++) {
+        inputs[i].onclick = function() {
+            console.log('checked');
+            document.getElementsByClassName('checkbox').checked = true;
+        };
+    }*/
 }
 
 let addTask=function(){
@@ -51,11 +64,9 @@ let addTask=function(){
 	}
 	else {
         taskInput.onkeypress = function() {
-            addButton.disabled = false;
-            alert('hi');
-            
+            console.log("hello");
+            addButton.disabled = "";
         }
-		//
 	    incompleteTaskHolder.appendChild(listItem);
 	    bindTaskEvents(listItem, taskIncomplete);
 	}
@@ -95,87 +106,119 @@ for (let i = 0; i < incompleteTaskHolder.length; i++) {
 
 }
 
-function showCover() {
-    let coverDiv = document.createElement('div');
-    coverDiv.id = 'cover-div';
-    document.body.appendChild(coverDiv);
+
+function showCover () {
+    let coverWindow = document.createElement('div');
+    coverWindow.className = 'cover-div';
+    coverWindow.id = 'cover-div';
+    document.body.appendChild(coverWindow);
+}
+
+function hideCover () {
+    document.body.removeChild(document.getElementById('cover-div'));
+}
+
+let showClearList = function() {
+	clearAll.style.display = 'block';
+}
+
+let hideClearList = function() {
+	clearAll.style.display = 'none';
 }
 
 function showPrompt(text) {
-    Cover();
+    showCover();
     let form = document.getElementById('prompt-form');
     let container = document.getElementById('prompt-form-container');
     let edit = document.getElementById("editInput");
 
     let labelEdit = document.getElementById('label');
 
+    console.log("Edit Task...");
+
     edit.value = labelEdit.innerText;
     
     form.elements.save.onclick = function() {
      
-       labelEdit.innerText =  edit.value;
-       document.body.removeChild(document.getElementById('delete-div'));
-       container.style.display = 'none';
+        labelEdit.innerText =  edit.value;
+        hideCover();
+        container.style.display = 'none';
 
     };
 
     form.elements.cancel.onclick = function() {
 
-       document.body.removeChild(document.getElementById('delete-div'));
-       container.style.display = 'none';
+        hideCover();
+        container.style.display = 'none';
 
     }
-
+    
     container.style.display = 'block';
-} 
-
-let showClearList = function() {
-
-	clearAll.style.display = 'block';
-
 }
 
-let hideClearList = function() {
+function showDeletePrompt() {
+    showCover();
 
-	clearAll.style.display = 'none';
+    let containerDelete = document.getElementById('delete-container'); 
+    let formDelete = document.getElementById('delete-form');
+    
+    console.log("Delete Task...");
 
+    formDelete.elements.again.onclick = function() {
+        let ul = document.getElementById('incomplete-tasks');
+        let li = document.getElementById('add');
+       
+        let res = ul.contains(li);
+        console.log(res);
+
+        if (res == false) {
+            hideClearList();
+        }
+       
+	    hideCover();
+        containerDelete.style.display = 'none';
+	  
+    };
+
+    formDelete.elements.finish.onclick = function() {
+        hideCover();
+        containerDelete.style.display = 'none';
+    }
+ 
+    containerDelete.style.display = 'block';
 }
 
 addButton.onclick = showClearList;
 addButton.addEventListener('click', showClearList);
 
-function ClearCover() {
-    let clearDiv = document.createElement('div');
-    clearDiv.id = 'clear-div';
-    document.body.appendChild(clearDiv);
-}
-
-function showClearPrompt(text) {
-    Cover();
+function showClearPrompt() {
+    showCover();
     let formClear = document.getElementById('clear-form');
     let containerClear = document.getElementById('clear-container');
 
+    console.log("Clear Tasks...")
+
     formClear.elements.clear.onclick = function() {
         
-            while (incompleteTaskHolder.lastChild) {
-              incompleteTaskHolder.removeChild(incompleteTaskHolder.lastChild);
-            
-          }
-          document.body.removeChild(document.getElementById('delete-div'));
-        document.body.removeChild(document.getElementById('delete-div'));
+        while (incompleteTaskHolder.lastChild) {
+            incompleteTaskHolder.removeChild(incompleteTaskHolder.lastChild);
+        }
+
+        hideCover();
+        hideCover();
         containerClear.style.display = 'none';
         let res = incompleteTaskHolder.contains(document.getElementById('add'));
-       console.log(res);
-       if (res == false) {
-        hideClearList();
-       }
+        console.log(res);
+        if (res == false) {
+            hideClearList();
+        }
      
     };
 
     formClear.elements.unclear.onclick = function() {
 
-        document.body.removeChild(document.getElementById('delete-div'));
-        document.body.removeChild(document.getElementById('delete-div'));
+        hideCover();
+        hideCover();
         containerClear.style.display = 'none';
 
     }
@@ -184,43 +227,6 @@ function showClearPrompt(text) {
 
 clearAll.onclick = showClearPrompt;
 clearAll.addEventListener('click', showClearPrompt)
-function Cover() {
-    let deleteDiv = document.createElement('div');
-    deleteDiv.id = 'delete-div';
-    document.body.appendChild(deleteDiv);
-}
 
-function showDeletePrompt(text) {
-    Cover();
-    let formDelete = document.getElementById('delete-form');
-    let containerDelete = document.getElementById('delete-container'); 
-    console.log("Delete Task...");
 
-    formDelete.elements.again.onclick = function() {
-       let ul = document.getElementById('incomplete-tasks');
-       let li = document.getElementById('add');
-       ul.removeChild(li);
-       let bb = ul.firstChild;
-       console.log(bb);
-       let res = ul.contains(document.getElementById('add'));
-       console.log(res);
-       if (res == false) {
-        hideClearList();
-       }
-       
-       	
-       
-     
-     /// hideClearList();
-	  document.body.removeChild(document.getElementById('delete-div'));
-       containerDelete.style.display = 'none';
-	  
-    };
 
-    formDelete.elements.finish.onclick = function() {
-       document.body.removeChild(document.getElementById('delete-div'));
-       containerDelete.style.display = 'none';
-    }
- 
-    containerDelete.style.display = 'block';
-}
