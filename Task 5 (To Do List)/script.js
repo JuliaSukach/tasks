@@ -1,25 +1,25 @@
-let taskInput=document.getElementById("new-task");//Add a new task.
-let addButton=document.getElementsByTagName("button")[0];//first button
-let incompleteTaskHolder=document.getElementById("incomplete-tasks");//ul of #incomplete-tasks
+let taskInput = document.getElementById("new-task");//Add a new task.
+let addButton = document.getElementsByTagName("button")[0];//first button
+let incompleteTaskHolder = document.getElementById("incomplete-tasks");//ul of #incomplete-tasks
 let clearAll = document.getElementById('clear'); //delete all tasks
 
 
 //New task list item
-let createNewTaskElement=function(taskString){
+let createNewTaskElement = function(taskString) {
 
-	let listItem=document.createElement("li");
+	let listItem = document.createElement("li");
 	//input (checkbox)
-	let checkBox=document.createElement("input");//checkbox
+	let checkBox = document.createElement("input");
 	//label
-	let label=document.createElement("label");//label
+	let label = document.createElement("label");
 	//input (text)
-	let editInput=document.createElement("input");//text
+	let editInput = document.createElement("input");
 	//button.edit
-	let editButton=document.createElement("button");//edit button
+	let editButton = document.createElement("button");
 	//button.delete
-	let deleteButton=document.createElement("button");//delete button
+	let deleteButton = document.createElement("button");
 
-	label.innerText=taskString;
+	label.innerText = taskString;
 
 	checkBox.type="checkbox";
 	editInput.type="text";
@@ -44,16 +44,15 @@ let createNewTaskElement=function(taskString){
     return listItem;
     
     //click label ---> input checked
-/*   let inputs = document.querySelectorAll('label'); 
-    for (let i = 0; i < inputs.length; i++) {
-        inputs[i].onclick = function() {
+   /* for (let i = 0; i < label.length; i++) {
+        label[i].onclick = function() {
             console.log('checked');
             document.getElementsByClassName('checkbox').checked = true;
         };
     }*/
 }
 
-let addTask=function(){
+let addTask=function() {
 	console.log("Add Task...");
 	//Create a new list item
 	let listItem = createNewTaskElement(taskInput.value);
@@ -73,31 +72,31 @@ let addTask=function(){
 	taskInput.value = "";
 }
 
-let taskIncomplete=function(){
+let taskIncomplete = function(){
     console.log("Incomplete Task...");
 		
-	let listItem=this.parentNode;
+	let listItem = this.parentNode;
 	incompleteTaskHolder.appendChild(listItem);
 	bindTaskEvents(listItem,taskIncomplete);
 }
 
-addButton.onclick=addTask;
+addButton.onclick = addTask;
 addButton.addEventListener("click",addTask);
 
 let bindTaskEvents=function(taskListItem,checkBoxEventHandler){
 	console.log("bind list item events");
     //select ListItems children
-	let checkBox=taskListItem.querySelector("input[type=checkbox]");
+	let checkBox=taskListItem.querySelector("input[type = checkbox]");
 	let editButton=taskListItem.querySelector("button.edit");
 	let deleteButton=taskListItem.querySelector("button.delete");
-	let clearAll = taskListItem.querySelector('button.clear');
+
 
 	    //Bind editTask to edit button.
-	    editButton.onclick=showPrompt;
+	    editButton.onclick = showPrompt;
 		//Bind deleteTask to delete button.
-	    deleteButton.onclick=showDeletePrompt;
+	    deleteButton.onclick = showDeletePrompt;
 		//Bind taskCompleted to checkBoxEventHandler.
-		checkBox.onchange=checkBoxEventHandler;
+		checkBox.onchange = checkBoxEventHandler;
 }
 
 for (let i = 0; i < incompleteTaskHolder.length; i++) {
@@ -126,10 +125,10 @@ let hideClearList = function() {
 	clearAll.style.display = 'none';
 }
 
-function showPrompt(text) {
+function showPrompt() {
     showCover();
-    let form = document.getElementById('prompt-form');
-    let container = document.getElementById('prompt-form-container');
+    let form = document.getElementById('edit-form');
+    let container = document.getElementById('edit-container');
     let edit = document.getElementById("editInput");
 
     let labelEdit = document.getElementById('label');
