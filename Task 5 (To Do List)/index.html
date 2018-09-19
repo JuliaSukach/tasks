@@ -1,43 +1,43 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset = "utf-8" />
+    <meta http-equiv = "X-UA-Compatible" content="IE=edge">
     <title>TO DO LIST</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" media="screen" href="style.css">
+    <meta name = "viewport" content = "width=device-width, initial-scale=1">
+    <link rel = "stylesheet" media = "screen" href = "style.css">
 </head>
 <body>
     <div class="container" id="container">
       <p>
-        <label for="new-task">Add Item</label>
-        <input class = "new-task" id="new-task" type="text">
-        <button id="addEdit">Add</button>
+        <label for = "new-task" class = "add-item">Add Item</label>
+        <input class = "new-task" id = "new-task" type= "text">
+        <button class = "button block" id = "addEdit" disabled="disabled">Add</button>
       </p>
       
-      <h3>Todo</h3>
-      <ul class="incomplete-tasks" id="incomplete-tasks">
+      <h3 class = "caption">Todo</h3>
+      <ul class = "incomplete-tasks" id = "incomplete-tasks">
       </ul>
-      <button class="clear" id="clear">Clear</button>
-      <div class = "dialog_window" id="clear-container">
+      <button class = "button clear" id = "clear">Clear</button>
+      <div class = "dialog_window" id = "clear-container">
           <form class = "form" id = "clear-form">
               <div class = "message">List will be delete complitely. Continue?</div>
-              <input class = "button-clear" id = "button-clear" type = "button" name = "clear" value="Yes">
-              <input class = "button-unclear" id = "button-unclear" type = "button" name = "unclear" value="No">
+              <button class = "button-clear" id = "button-clear" type = "button" name = "clear">Yes</button>
+              <button class = "button-unclear" id = "button-unclear" type = "button" name = "unclear">No</button>
           </form>
       </div>  
-      <div class = "dialog_window" id ="delete-container">
-          <form class=" form" id="delete-form">
-              <div class="message">This is item will be delete. Continue?</div>
-              <input class = "button-yes" id = "button-yes" type = "button" name = "again" value="Yes">
-              <input class = "button-no" id = "button-no" type = "button" name = "finish" value="No">
+      <div class = "dialog_window" id = "delete-container">
+          <form class = "form" id = "delete-form">
+              <div class = "message">This is item will be delete. Continue?</div>
+              <button class = "button-yes" id = "button-yes" type = "button" name = "again">Yes</button>
+              <button class = "button-no" id = "button-no" type = "button" name = "finish">No</button>
           </form>
       </div>
-      <div class="dialog_window" id="edit-container">
-          <form class="form" id="edit-form">
+      <div class = "dialog_window" id = "edit-container">
+          <form class = "form" id = "edit-form">
               <input class = "button-edit" id = "editInput" type = "text" name = "edit">
-              <input class = "button-save" id = "button-save" type = "button" name = "save" value="Save">
-              <input class = "button-cancel" id = "button-cancel" type = "button" name = "cancel" value="Cancel">
+              <button class = "button-save" id = "button-save" type = "button" name = "save">Save</button>
+              <button class = "button-cancel" id = "button-cancel" type = "button" name = "cancel">Cancel</button>
           </form>
       </div>
     </div>

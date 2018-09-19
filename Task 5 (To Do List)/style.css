@@ -1,7 +1,19 @@
+:root {
+    --color-background: #dfb1e2;
+    --color-underline: #eeeeee;
+    --color-background-form: #b272ae;
+    --color-border-task: #333333;
+    --color-border-form: #665b5d;
+    --color-background-cover: #948a94;
+    --color-button-text: #665b5d;
+    --color-input-text: #888888;
+    --color-border-input: #dddddd;
+    --color-task: #000000;
+}
+
 body {
-    color: black;
     font-family: Lato, sans-serif;
-    background: #dfb1e2;
+    background-color: var(--color-background);
 }
 
 .container {
@@ -13,88 +25,90 @@ body {
     text-align: center;
 }
 
-ul {
+.incomplete-tasks {
     margin: 0;
     padding: 0;
+    max-height: 350px;
+    list-style-type: none;
+    overflow-y: auto;
 }
 
-li {
+.add {
     height: 30px;
     padding: 1em;
     justify-content: center;
     list-style-type: none;
-    line-height: 30px;
-    border-bottom: 1px solid #eee; 
+    border-bottom: 1px solid var(--color-underline); 
 }
 
-button {
+.button {
     width: 60px;
     margin: 10px 0 0;
     font-size: 15px;
     font-family: Lato, sans-serif;
-    color: #665b5d;
+    color: var(--color-button-text);
     background: none;
-    border: 0px;
+    border: none;
     cursor: pointer;
 }
 
-button:hover {
-    color: #333;
+.button:hover {
+    color: var(--color-underline);
 }
 
-h3, label:first-child {
+.edit {
+    height: 24px;
+    width: 24px;
+    background-image: url(edit.png);
+}
+
+.delete {
+    height: 24px;
+    width: 24px;
+    margin-left: 1em;
+    background-image: url(cross.png);
+}
+
+.caption, .add-item:first-child {
     margin: 0;
     padding: 30px 0 10px;
     font-size: 15px;
     font-weight: 700;
-    color: #333;
-    border-bottom: 2px solid #333;
+    border-bottom: 2px solid var(--color-border-task);
     text-transform: uppercase;
 }
 
-input[type="text"] {
+.new-task, .button-edit {
     height: 18px;
-    margin: 0;
+    margin-top: 1.5em;
     padding: 10px;
     font-size: 18px;
     line-height: 18px;
     font-family: Lato, sans-serif;
-    color: #888;
-    background: #fff;
-    border: 1px solid #ddd;
+    color: var(--color-input-text);
+    border: 1px solid var(--color-border-input);
     border-radius: 6px; 
 }
 
-input[type="text"]:focus {
-    color:#665b5d;
+.new-task:focus, .button-edit:focus {
+    color: var(--color-input-text);
 }
 
-label[for='new-task'] {
+.add-item {
     display: block;
     margin: 0 0 20px;
 }
+
 .new-task {
     width: 318px;
 }
 
-p > button {
-    color: #665b5d;
-    -moz-transition: all 1s ease-out;
-    -o-transition: all 1s ease-out;
-    -webkit-transition: all 1s ease-out;
-}      
-p > button:hover{
-    -webkit-transform: scale(1.1);
-    -moz-transform: scale(1.1);
-    -o-transform: scale(1.1);
-
-}
-
-.incomplete-tasks label {
+.label {
     display: inline-block;
     width: 250px; 
-    padding-left: 2em;
-    color: black;
+    padding-left: 1em;
+    font-size: 1.3em;
+    color: var(--color-task);
     text-align: left;
     text-overflow: ellipsis;
     white-space: nowrap; 
@@ -105,7 +119,7 @@ p > button:hover{
    text-decoration: line-through;
 }
 
-ul li input[type=text] {
+.incomplete-tasks .add input[type=text] {
     display:none;
 }
 
@@ -116,8 +130,8 @@ ul li input[type=text] {
     height: 250px;
     padding: 5px;
     vertical-align: middle;
-    background: #b272ae;
-    border: 1px solid #665b5d; 
+    background-color: var(--color-background-form);
+    border: 1px solid var(--color-border-form); 
 }
 
 
@@ -146,7 +160,7 @@ ul li input[type=text] {
     z-index: 2;
     height: 100%;
     width: 100%;
-    background-color: gray;
+    background-color: var(--color-background-cover);
     opacity: 0.8;
 }
 
@@ -162,11 +176,9 @@ ul li input[type=text] {
 .clear:before {
     display: block;
 }
-
-.incomplete-tasks {
-    max-height: 350px;
-    list-style-type: none;
-    overflow-y: scroll
+.checkbox {
+    height: 24px;
+    width: 24px;
 }
 
 .checkbox:checked ~ .label {
@@ -178,9 +190,9 @@ ul li input[type=text] {
     text-decoration:line-through;
 }
 
-form .button-edit {
+.form .button-edit {
     position: absolute;
-    top: 30%;                       
+    top: 20%;                       
     left: 20%;
 
 }
@@ -206,3 +218,4 @@ form .button-edit {
     border: 0px;
     cursor: pointer;
 }
+
