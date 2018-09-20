@@ -224,7 +224,7 @@ function showClearPrompt() {
 }
 
 clearAll.onclick = showClearPrompt;
-clearAll.addEventListener('click', showClearPrompt)
+clearAll.addEventListener('click', showClearPrompt);
 
 
 
