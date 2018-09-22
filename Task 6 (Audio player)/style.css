@@ -1,0 +1,46 @@
+body {
+	background-color: #ac7ec9;
+}
+
+.container {
+	display: block;
+    max-width: 1024px;
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: left;
+    
+}
+.player {
+	width: 600px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.playlist {
+	width: 600px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.music {
+	padding: 0.8em;
+	font-size: 1.1em;
+	color: #fcf7ff;
+	list-style-type: decimal-leading-zero;
+}
+
+.music:hover {
+	background-color: #703b91;
+}
+
+label {
+	cursor: pointer;
+}
+.time {
+	float: right;
+}
+
+p {
+	cursor: pointer;
+}
