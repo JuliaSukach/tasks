@@ -11,10 +11,32 @@ body {
     text-align: left;
     
 }
-.player {
+.player, .about-song {
+	display: flex;
+	justify-content: space-between;
+	height: 16px;
 	width: 600px;
 	margin-left: auto;
 	margin-right: auto;
+	padding-top: 3em; 
+	color: #fcf7ff;
+}
+
+.song-slider {
+	width: 300px;
+}
+
+.name-song {
+	float: right;
+}
+
+.volume-slider {
+	width: 100px;
+	float: right;
+}
+
+.volume {
+	float: right;
 }
 
 .playlist {
@@ -34,13 +56,9 @@ body {
 	background-color: #703b91;
 }
 
-label {
+label, .button {
 	cursor: pointer;
 }
 .time {
 	float: right;
-}
-
-p {
-	cursor: pointer;
 }
