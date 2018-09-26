@@ -13,26 +13,27 @@
 		<div class="player">
 			<img class="button" id="button-reload" src="icons/reload.png">
 			<img class="button" id="button-start-pause" src="icons/play.png">
+			<!--<img class="button" id="button-next" src="icons/next-track.png">-->
 			<input class="song-slider" id="song-slider" type="range" min="0" step="1" value="0">
 			<div>
 			    <label class="current-time" id="current-time">00:00 /</label>
 			    <label class="duration" id="duration">00:00</label>	
 			</div>
-			<img class="volume" src="icons/volume.png">
-			<input type="range" min="0.0" max="1.0" step="0.01" value="0.8" name="volume" id="volumeControl">
+			<img class="button" id="button-volume" src="icons/volume.png">
+			<input type="range" min="0.0" max="1.0" step="0.01" value="0.5" name="volume" class="volumeControl" id="volumeControl">
 			
 		</div>
-	<ol class="playlist" id = "playlist">
-		<li class="music" id="song"><label class="first">Kanye West – Famous</label><span class="time" datetime="3:14">3:14</span></li>
-		<li class="music" id="song"><label class="second">Kanye West & Kid Cudi – Reborn</label><span class="time" datetime="5:24">5:24</span></li>
-		<li class="music" id="song"><label class="third">SiR – Summer in November</label><time class="time" datetime="3:45">3:45</time></li>
-		<li class="music" id="song"><label class="fourth">SiR – War</label><time class="time" datetime="3:40">3:40</time></li>
-		<li class="music" id="song"><label class="fifth">Kid Cudi – Man on the Moon</label><time class="time" datetime="3:32">3:32</time></li>
-		<li class="music" id="song"><label class="sixth">Kid Cudi – Rose Golden</label><time class="time" datetime="4:41">4:37</time></li>
-		<li class="music" id="song"><label class="seventh">Saint Jhn – I Heard You Got Too Litt Last Night</label><time class="time" datetime="3:17">3:17</time></li>
-		<li class="music" id="song"><label class="eighth">HONNE – I Got You</label><time class="time" datetime="3:31">3:31</time></li>
-		<li class="music" id="song"><label class="ninth">Jaden Smith – Icon</label><time class="time" datetime="3:41">3:41</time></li>
-		<li class="music" id="song"><label class="tenth">Jaden Smith – Ghost</label><time class="time" datetime="2:08">2:07</time></li>
+	<ol class="playlist" id ="playlist">
+		<li class="music" id="song"><label class="first track">Kanye West – Famous</label><span class="time" datetime="3:14">3:14</span></li>
+		<li class="music" id="song"><label class="second track">Kanye West & Kid Cudi – Reborn</label><span class="time" datetime="5:24">5:24</span></li>
+		<li class="music" id="song"><label class="third track">SiR – Summer in November</label><time class="time" datetime="3:45">3:45</time></li>
+		<li class="music" id="song"><label class="fourth track">SiR – War</label><time class="time" datetime="3:40">3:40</time></li>
+		<li class="music" id="song"><label class="fifth track">Kid Cudi – Man on the Moon</label><time class="time" datetime="3:32">3:32</time></li>
+		<li class="music" id="song"><label class="sixth track">Kid Cudi – Rose Golden</label><time class="time" datetime="4:41">4:37</time></li>
+		<li class="music" id="song"><label class="seventh track">Saint Jhn – I Heard You Got Too Litt Last Night</label><time class="time" datetime="3:17">3:17</time></li>
+		<li class="music" id="song"><label class="eighth track">HONNE – I Got You</label><time class="time" datetime="3:31">3:31</time></li>
+		<li class="music" id="song"><label class="ninth track">Jaden Smith – Icon</label><time class="time" datetime="3:41">3:41</time></li>
+		<li class="music" id="song"><label class="tenth track">Jaden Smith – Ghost</label><time class="time" datetime="2:08">2:07</time></li>
 	</ol>
 </div>
 <script src="script.js"></script>

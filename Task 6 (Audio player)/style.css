@@ -1,5 +1,12 @@
+:root {
+    --color-background: #ac7ec9;
+    --color-text: #fcf7ff;
+    --color-highlight-text: #703b91;
+}
+   
+
 body {
-	background-color: #ac7ec9;
+	background-color: var(--color-background);
 }
 
 .container {
@@ -19,11 +26,17 @@ body {
 	margin-left: auto;
 	margin-right: auto;
 	padding-top: 3em; 
-	color: #fcf7ff;
+	color: var(--color-text);
 }
 
 .song-slider {
 	width: 300px;
+	cursor: pointer;
+}
+
+.volumeControl {
+	width: 80px;
+	cursor: pointer;
 }
 
 .name-song {
@@ -48,15 +61,15 @@ body {
 .music {
 	padding: 0.8em;
 	font-size: 1.1em;
-	color: #fcf7ff;
+	color: var(--color-text);
 	list-style-type: decimal-leading-zero;
 }
 
 .music:hover {
-	background-color: #703b91;
+	background-color: var(--color-highlight-text);
 }
 
-label, .button {
+.track, .button {
 	cursor: pointer;
 }
 .time {
