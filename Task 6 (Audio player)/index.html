@@ -1,21 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>PLAYER</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
+	<meta charset = "utf-8" />
+    <meta http-equiv = "X-UA-Compatible" content="IE=edge">
+    <title>PLAYER</title>
+    <meta name = "viewport" content = "width=device-width, initial-scale=1">
+    <link rel = "stylesheet" media = "screen" href = "style.css">
 </head>
 <body>
 	<div class="container">
 		<div class="about-song" id="about-song">
-			<span id="state"></span>
+			<span class="state-song" id="state"></span>
 			<label class="name-song" id="name-song"></label>
 		</div>
 		<div class="player">
 			<img class="button" id="button-reload" src="icons/reload.png">
+			<img class="button" id="button-previous" src="icons/previous-track.png">
 			<img class="button" id="button-start-pause" src="icons/play.png">
-			<!--<img class="button" id="button-next" src="icons/next-track.png">-->
+			<img class="button" id="button-next" src="icons/next-track.png">
 			<input class="song-slider" id="song-slider" type="range" min="0" step="1" value="0">
-			<div>
+			<div class="time-song"> 
 			    <label class="current-time" id="current-time">00:00 /</label>
 			    <label class="duration" id="duration">00:00</label>	
 			</div>
@@ -24,16 +28,16 @@
 			
 		</div>
 	<ol class="playlist" id ="playlist">
-		<li class="music" id="song"><label class="first track">Kanye West – Famous</label><span class="time" datetime="3:14">3:14</span></li>
-		<li class="music" id="song"><label class="second track">Kanye West & Kid Cudi – Reborn</label><span class="time" datetime="5:24">5:24</span></li>
-		<li class="music" id="song"><label class="third track">SiR – Summer in November</label><time class="time" datetime="3:45">3:45</time></li>
-		<li class="music" id="song"><label class="fourth track">SiR – War</label><time class="time" datetime="3:40">3:40</time></li>
-		<li class="music" id="song"><label class="fifth track">Kid Cudi – Man on the Moon</label><time class="time" datetime="3:32">3:32</time></li>
-		<li class="music" id="song"><label class="sixth track">Kid Cudi – Rose Golden</label><time class="time" datetime="4:41">4:37</time></li>
-		<li class="music" id="song"><label class="seventh track">Saint Jhn – I Heard You Got Too Litt Last Night</label><time class="time" datetime="3:17">3:17</time></li>
-		<li class="music" id="song"><label class="eighth track">HONNE – I Got You</label><time class="time" datetime="3:31">3:31</time></li>
-		<li class="music" id="song"><label class="ninth track">Jaden Smith – Icon</label><time class="time" datetime="3:41">3:41</time></li>
-		<li class="music" id="song"><label class="tenth track">Jaden Smith – Ghost</label><time class="time" datetime="2:08">2:07</time></li>
+		<li class="music" id="song"><label class="track">Kanye West – Famous</label><time class="time" id="time">00:00</time></li>
+		<li class="music" id="song"><label class="track">Kanye West & Kid Cudi – Reborn</label><time class="time" id="time">00:00</time></li>
+		<li class="music" id="song"><label class="track">SiR – Summer in November</label><time class="time" id="time">00:00</time></li>
+		<li class="music" id="song"><label class="track">SiR – War</label><time class="time" id="time">00:00</time></li>
+		<li class="music" id="song"><label class="track">Kid Cudi – Man on the Moon</label><time class="time" id="time">00:00</time></li>
+		<li class="music" id="song"><label class="track">Kid Cudi – Rose Golden</label><time class="time" id="time">00:00</time></li>
+		<li class="music" id="song"><label class="track">Saint Jhn – I Heard You Got Too Litt Last Night</label><time class="time" id="time">00:00</time></li>
+		<li class="music" id="song"><label class="track">HONNE – I Got You</label><time class="time" id="time">00:00</time></li>
+		<li class="music" id="song"><label class="track">Jaden Smith – Icon</label><time class="time" id="time">00:00</time></li>
+		<li class="music" id="song"><label class="track">Jaden Smith – Ghost</label><time class="time" id="time">00:00</time></li>
 	</ol>
 </div>
 <script src="script.js"></script>
