@@ -29,12 +29,12 @@ let playSong = document.getElementById('playlist'); // ol
 let music = document.getElementById('music'); // li with song
 let currentTime = document.getElementById('current-time');
 let duration = document.getElementById('duration');
-let audio = document.getElementById('track');
 
 window.onload = loadSong;
 
 function loadSong () {
-	song.src = 'playlist/' + songs[currentSong];
+	console.log(songs[currentSong]);
+	song.src = `playlist/${ songs[currentSong] }`;//'playlist/' + songs[currentSong];
 	let rename = songs[currentSong].split('.');
 	broadcast.innerText = rename[0];
 	state.innerText = 'Paused...';
@@ -42,10 +42,10 @@ function loadSong () {
 
 let startSong = function (event) {
 	let playTrack = event.target.textContent;
-	song.src = 'playlist/' + playTrack + '.mp3';		
-	broadcast.innerText = playTrack;
-	let number = songs.indexOf(playTrack + '.mp3');
+	let number = songs.indexOf(`${ playTrack }.mp3`);
 	currentSong = number;
+	song.src = `playlist/${ songs[currentSong] }`;
+	broadcast.innerText = playTrack;
 	playOrPauseSong ();
 }
 
@@ -70,19 +70,19 @@ let playAgainSong = function () {
 }
 
 let nextSong = function () {
-	song.src = 'playlist/' + songs[currentSong +1];
+	song.src = `playlist/${ songs[currentSong+1] }`;
 	song.play();
 	let rename = songs[currentSong+1].split('.');
 	broadcast.innerText = rename[0];
-	currentSong = currentSong +1;
+	currentSong = ++currentSong || currentSong++ ;
 }
 
 let previousSong = function () {
-	song.src = 'playlist/' + songs[currentSong -1];
+	song.src = `playlist/${ songs[currentSong -1] }`;
 	song.play();
 	let rename = songs[currentSong-1].split('.');
 	broadcast.innerText = rename[0];
-	currentSong = currentSong -1;
+	currentSong = --currentSong;
 }
 
 let muteSong = function () {
@@ -96,14 +96,16 @@ let muteSong = function () {
 		buttonVolume.src = "icons/volume.png";
 		volumeSlider.value = 0.5;
 	}
-	
 }
 
-let handlerFunc = function () {
+let durationFunc = function () {
     //set duration
-	let d = Math.floor(song.duration);
+ 	let d = Math.floor(song.duration);
 	songSlider.setAttribute("max", d);
 	duration.textContent = convertTime(d);
+}
+
+let currentFunc = function () {
     //set current time
 	let c = Math.round(song.currentTime);
 	songSlider.value = c;
@@ -113,9 +115,11 @@ let handlerFunc = function () {
 function convertTime (time) {
 	let min = Math.floor(time/60);
 	let sec = time % 60;
-	min = (min < 10) ? "0" + min : min;
-	sec = (sec < 10) ? "0" + sec : sec;
-	return (min + ":" + sec);
+	if (min < 10) {
+		min = '0' + min;
+	}
+	sec = (sec < 10) ? `0${ sec }`:sec;
+	return (`${ min } : ${ sec }`);
 }
 
 let changeTimeSong = function () {
@@ -126,21 +130,10 @@ let changeVolume = function () {
 	song.volume = volumeSlider.value;
 }
 
-/*let setTime = function () {
-	console.log(currentSong);
-	console.log(songs.length);
-	for (currentSong = 0; currentSong < songs.length; currentSong++) {
-		let time = document.getElementById('time');
-		console.log(time);
-		let a = Math.floor(song.duration);
-		console.log(a);
-
-	}
-}*/
-
 volumeSlider.addEventListener('click', changeVolume);
 songSlider.addEventListener('click', changeTimeSong);
-song.addEventListener('timeupdate', handlerFunc);
+song.addEventListener('loadedmetadata', durationFunc);
+song.addEventListener('timeupdate', currentFunc);
 song.addEventListener('ended', nextSong);
 buttonNext.addEventListener('click', nextSong);
 buttonPrevious.addEventListener('click', previousSong);
