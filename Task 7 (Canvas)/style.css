@@ -1,0 +1,34 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rebeccapurple;
+    box-sizing: content-box;
+}
+.container {
+    display: flex;
+}
+
+.myCanvas {
+    display: block;
+    float: left;
+    max-width: 900px;
+    width: 100%;
+    height: 100%;
+    margin: 5em 0 0 7em;
+    border: 1em solid black;
+}
+
+.container-button {
+    margin: auto;
+}
+
+.button {
+    display: block;
+    width: 10em;
+    height: 3em;
+    margin-bottom: 2em;
+    background-color: aqua;
+    border: none;
+    border-radius: 1.5em; 
+}
