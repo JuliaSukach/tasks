@@ -8,12 +8,18 @@
     <link rel="stylesheet" type="text/css" href="style.css" />
 </head>
 <body>
-    <div class="container">
-        <canvas class="myCanvas" id="myCanvas"></canvas>
+    <div class="container" id="container">
+        <canvas class="myCanvas" id="myCanvas" width="900px" height="450px"></canvas>
         <div class="container-button">
             <button class="button" id="button-add">Add shape</button>
             <button class="button" id="button-delete">Delete shape</button>
             <button class="button" id="button-clear">Clear canvas</button>
+        </div>
+        <div class = "dialog_window" id = "dialog_window">
+            <form class = "form" id = "form">
+                <button class = "button-close" id ="button-close" type="button" name="close"></button>
+                <div class = "message">Canvas is overflow</div> 
+            </form>
         </div>    
     </div>
     <script src="script.js"></script> 
