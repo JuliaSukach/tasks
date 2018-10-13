@@ -22,8 +22,8 @@ function getRandomColor() {
 }
 
  let addCircleFunc = function ()  {
-    // Устанавливаем произвольный размер и позицию круга
-    let x = 40 + (offset*60);
+
+    let x = 40 + (offset*65);
     let y = 40 + (offset*20);
     let radius = 30;
 
@@ -53,9 +53,20 @@ function drawCircle() {
         
 
         if (circle.isSelected) {
-            ctx.lineWidth = 3;
+            ctx.lineWidth = 2;
             //ctx.setLineDash([10, 2]);
-            ctx.strokeStyle = "black";  
+            ctx.strokeStyle = "black";
+            deleteButton.removeAttribute("disabled");
+            let deleteShape = deleteButton.addEventListener('click', function () {
+                console.log('hi');
+                let deleteX = circle.x - 31;
+                let deleteY = circle.y - 31;
+                let deleteWidth = circle.radius *2 + 5;
+                let deleteHight = circle.radius *2 + 5;
+                ctx.clearRect(deleteX, deleteY, deleteWidth,deleteHight);
+                delete circles[i];
+            });
+
         }
 
         else {
@@ -119,17 +130,24 @@ let highlightCircle = function (position) {
             
             previousSelectedCircle = circle;
     
-            circle.isSelected = true;
-            drawCircle();  
+            circle.isSelected = true;    
+
+            drawCircle(); 
 
             return;
         }
     } 
 }
 
+let deleteShapeFunc = function (deletePosition) {
+    console.log(deletePosition);
+    //ctx.clearRect(deleteX, deleteY, canvas.deleteWidth, canvas.deleteHight);
+}
 
-addButton.addEventListener('click', addCircleFunc);
-//deleteButton.addEventListener('click', deleteShapeFunc);
+
+
+let aa = addButton.addEventListener('click', addCircleFunc);
+//let deleteShape = deleteButton.addEventListener('click', deleteShapeFunc)
 clearButton.addEventListener('click', clearCanvas);
 canvas.addEventListener('click', highlightCircle);
 

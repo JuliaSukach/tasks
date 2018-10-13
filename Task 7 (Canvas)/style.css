@@ -40,6 +40,11 @@ body {
     outline: none;
 }
 
+.button-delete:disabled {
+    color: #afac8c;
+    background-color: #5b5948;
+}
+
 .cover-div {
     position: fixed;
     top: 0;
