@@ -5,6 +5,11 @@ let addButton = document.getElementById('button-add');
 let deleteButton = document.getElementById('button-delete');
 let clearButton = document.getElementById('button-clear');
 
+let mouse = {
+    x : 0,
+    y : 0
+};
+
 let Circle = function (x, y, radius, color) {
     this.x = x;
     this.y = y;
@@ -16,6 +21,13 @@ let Circle = function (x, y, radius, color) {
 let circles = [];
 let offset = 0;
 
+let selected = false;
+
+let isCursorInCircle = function (circle) {
+    return (mouse.x > (circle.x - circle.radius)) && (mouse.x < (circle.x + circle.radius)) &&
+    (mouse.y > (circle.y - circle.radius)) && (mouse.y < (circle.y + circle.radius));
+}
+
 function getRandomColor() {
     let colors = ['red', 'orange', 'yellow', 'green', 'blue', 'purple'];
     return colors[Math.floor(Math.random() * colors.length)];
@@ -23,27 +35,32 @@ function getRandomColor() {
 
  let addCircleFunc = function ()  {
 
-    let x = 40 + (offset*65);
-    let y = 40 + (offset*20);
-    let radius = 30;
+    if (offset < 10) {
+        let x = 40 + (offset*65);
+        let y = 40 + (offset*20);
+        let radius = 30;
 
-    offset++;
+        offset++;
 
-    let color = getRandomColor();
+        let color = getRandomColor();
 
-    let circle = new Circle(x, y, radius, color);
+        let circle = new Circle(x, y, radius, color);
 
-    circles.push(circle);
+        circles.push(circle);
 
-    drawCircle();
+        drawCircle();
+
+    }
+    else {
+        showDialogWindow ();
+    }  
 }
 
 function drawCircle() {
 
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
     for(let i = 0; i < circles.length; i++) {
-        if (i > 9) {
-            showDialogWindow ();
-        }
 
         let circle = circles[i];
 
@@ -51,13 +68,12 @@ function drawCircle() {
         ctx.arc(circle.x, circle.y, circle.radius, 0, Math.PI*2);
         ctx.fillStyle = circle.color;
         
-
         if (circle.isSelected) {
             ctx.lineWidth = 2;
-            //ctx.setLineDash([10, 2]);
+            ctx.setLineDash([10, 2]);
             ctx.strokeStyle = "black";
             deleteButton.removeAttribute("disabled");
-            let deleteShape = deleteButton.addEventListener('click', function () {
+           /* let deleteShape = deleteButton.addEventListener('click', function () {
                 console.log('hi');
                 let deleteX = circle.x - 31;
                 let deleteY = circle.y - 31;
@@ -65,17 +81,17 @@ function drawCircle() {
                 let deleteHight = circle.radius *2 + 5;
                 ctx.clearRect(deleteX, deleteY, deleteWidth,deleteHight);
                 delete circles[i];
-            });
+            });*/
 
         }
 
         else {
-            ctx.lineWidth = 0.1;
+            ctx.lineWidth = 0.0001;
         }
         ctx.fill();
         ctx.stroke();
-              
-    }
+            
+    }             
 }
 
 function showCover () {
@@ -137,16 +153,82 @@ let highlightCircle = function (position) {
             return;
         }
     } 
-}
+};
+
+setInterval( function () {
+
+    for(let i = 0; i < circles.length; i++) {
+        let circle = circles[i];
+
+        ctx.beginPath();
+        ctx.arc(circle.x, circle.y, circle.radius, 0, Math.PI*2);
+        ctx.fillStyle = circle.color;
+
+        if(isCursorInCircle (circle)) {
+            if (previousSelectedCircle != null) 
+            previousSelectedCircle.isSelected = false;
+            
+            previousSelectedCircle = circle;
+            circle.isSelected = true;    
+
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            for(let i = 0; i < circles.length; i++) {
+
+                let circle = circles[i];
+
+                ctx.beginPath();
+                ctx.arc(circle.x, circle.y, circle.radius, 0, Math.PI*2);
+                ctx.fillStyle = circle.color;
+          
+                if (circle.isSelected) {
+                    ctx.lineWidth = 2;
+                    ctx.setLineDash([10, 2]);
+                    ctx.strokeStyle = "black";
+                    deleteButton.removeAttribute("disabled");
+                }
+
+                else {
+                    ctx.lineWidth = 0.0001;
+                }
+                ctx.fill();
+                ctx.stroke();
+            }       
+        }
+        if (selected) {
+            selected.x = mouse.x;
+            selected.y = mouse.y;
+        }
+    }
+},30);
 
 let deleteShapeFunc = function (deletePosition) {
     console.log(deletePosition);
     //ctx.clearRect(deleteX, deleteY, canvas.deleteWidth, canvas.deleteHight);
 }
 
+window.onmousemove = function (event) {
+    mouse.x = event.pageX - canvas.offsetLeft;
+    mouse.y = event.pageY - canvas.offsetTop;
+};
 
+window.onmousedown = function () {
+    if (!selected) {
+        
+        let i;
+        for(i in circles) {
 
-let aa = addButton.addEventListener('click', addCircleFunc);
+        if(isCursorInCircle (circles[i])) {
+            selected = circles[i];       
+        }
+    }      
+}}
+
+window.onmouseup = function () {
+    selected = false;
+};
+
+addButton.addEventListener('click', addCircleFunc);
 //let deleteShape = deleteButton.addEventListener('click', deleteShapeFunc)
 clearButton.addEventListener('click', clearCanvas);
 canvas.addEventListener('click', highlightCircle);

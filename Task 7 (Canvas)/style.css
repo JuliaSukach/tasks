@@ -1,8 +1,19 @@
+:root {
+    --color-background: #e3ed8e;
+    --color-canvas: #ffffff;
+    --color-button: #a89f52;
+    --color-button-active: #5e592c;
+    --color-desabled-font: #afac8c;
+    --color-desabled-button: #5b5948;
+    --color-cover: #000000;
+    --color-form: #a87252;
+}
+
 body {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #e3ed8e;
+    background-color: var(--color-background);
     box-sizing: content-box;
 }
 .container {
@@ -14,7 +25,8 @@ body {
     float: left;
     max-width: 900px;
     margin: 5em 0 0 7em;
-    background-color: white;
+    background-color: var(--color-canvas);
+    cursor: crosshair;
 }
 
 .container-button {
@@ -27,13 +39,13 @@ body {
     height: 3em;
     margin-bottom: 2em;
     color: #f7f2c5;
-    background-color: #a89f52;
+    background-color: var(--color-button);
     border: none;
     border-radius: 1.5em; 
 }
 
 .button:active {
-    background-color: #5e592c;
+    background-color: var(--color-button-active);
 }
 
 .button:focus {
@@ -41,8 +53,8 @@ body {
 }
 
 .button-delete:disabled {
-    color: #afac8c;
-    background-color: #5b5948;
+    color: var(--color-desabled-font);
+    background-color: var(--color-desabled-button);
 }
 
 .cover-div {
@@ -52,7 +64,7 @@ body {
     z-index: 2;
     height: 100%;
     width: 100%;
-    background-color: black;
+    background-color: var(--color-cover);
     opacity: 0.8;
 }
 
@@ -81,7 +93,7 @@ body {
     height: 250px;
     padding: 5px;
     vertical-align: middle;
-    background-color: #a87252;
+    background-color: var(--color-form);
     border: 1px solid white;
     border-radius: 3em; 
 }
@@ -92,7 +104,7 @@ body {
     width: 32px;
     margin-top: 1em;
     margin-right: 1em;
-    background-color: #a87252;
+    background-color: var(--color-form);
     background-image: url(icons/close.png);
     border: none;
     cursor: pointer;
