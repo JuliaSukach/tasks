@@ -198,6 +198,14 @@ setInterval( function () {
         if (selected) {
             selected.x = mouse.x;
             selected.y = mouse.y;
+            //change size of circle
+           /* selected.x = mouse.x;
+            selected.y = mouse.y;
+            selected.radius = mouse.radius;
+                ctx.beginPath();
+                ctx.arc(mouse.x, mouse.y, mouse.radius, 0, Math.PI*2);
+                ctx.fillStyle = circle.color;*/
+            
         }
     }
 },30);
@@ -210,6 +218,7 @@ let deleteShapeFunc = function (deletePosition) {
 window.onmousemove = function (event) {
     mouse.x = event.pageX - canvas.offsetLeft;
     mouse.y = event.pageY - canvas.offsetTop;
+    mouse.radius = Math.sqrt(Math.pow(mouse.x, 2) + Math.pow(mouse.y, 2));
 };
 
 window.onmousedown = function () {

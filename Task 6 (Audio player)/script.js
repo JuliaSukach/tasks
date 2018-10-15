@@ -38,6 +38,13 @@ function loadSong () {
 	let rename = songs[currentSong].split('.');
 	broadcast.innerText = rename[0];
 	state.innerText = 'Paused...';
+	let colorsArray = [
+		'green',
+		'red',
+		'yellow'
+	]
+	let randomShape = Math.floor(Math.random()*3);
+	console.log(colorsArray[0]);
 }
 
 let startSong = function (event) {
@@ -141,6 +148,8 @@ playSong.onclick = startSong;
 buttonReload.onclick = playAgainSong;
 buttonVolume.onclick = muteSong;
 playOrPauseButton.onclick = playOrPauseSong;
+
+
 
 
 
