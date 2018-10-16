@@ -22,6 +22,7 @@ let circles = [];
 let offset = 0;
 
 let selected = false;
+let changeScale = false;
 
 let isCursorInCircle = function (circle) {
     return (mouse.x > (circle.x - circle.radius)) && (mouse.x < (circle.x + circle.radius)) &&
@@ -67,30 +68,8 @@ function drawCircle() {
         ctx.beginPath();
         ctx.arc(circle.x, circle.y, circle.radius, 0, Math.PI*2);
         ctx.fillStyle = circle.color;
-        
-        if (circle.isSelected) {
-            ctx.lineWidth = 2;
-            ctx.setLineDash([10, 2]);
-            ctx.strokeStyle = "black";
-            deleteButton.removeAttribute("disabled");
-           /* let deleteShape = deleteButton.addEventListener('click', function () {
-                console.log('hi');
-                let deleteX = circle.x - 31;
-                let deleteY = circle.y - 31;
-                let deleteWidth = circle.radius *2 + 5;
-                let deleteHight = circle.radius *2 + 5;
-                ctx.clearRect(deleteX, deleteY, deleteWidth,deleteHight);
-                delete circles[i];
-            });*/
 
-        }
-
-        else {
-            ctx.lineWidth = 0.0001;
-        }
-        ctx.fill();
-        ctx.stroke();
-            
+        ctx.fill();            
     }             
 }
 
@@ -114,7 +93,6 @@ function showDialogWindow () {
     form.elements.close.onclick = function() {
         hideCover();
         dialogWindow.style.display = 'none';
-        console.log(dialogWindow.style.display);
     }
 
     dialogWindow.style.display = 'block';
@@ -186,6 +164,10 @@ setInterval( function () {
                     ctx.setLineDash([10, 2]);
                     ctx.strokeStyle = "black";
                     deleteButton.removeAttribute("disabled");
+                    ctx.fillRect((circle.x + circle.radius-5),circle.y-5,10,10);
+                    ctx.fillRect(circle.x-5,(circle.y + circle.radius-5),10,10);
+                    ctx.fillRect((circle.x - circle.radius-5),circle.y-5,10,10);
+                    ctx.fillRect(circle.x-5,(circle.y - circle.radius-5),10,10);
                 }
 
                 else {
@@ -205,6 +187,15 @@ setInterval( function () {
                 ctx.beginPath();
                 ctx.arc(mouse.x, mouse.y, mouse.radius, 0, Math.PI*2);
                 ctx.fillStyle = circle.color;*/
+               /* let deleteShape = deleteButton.addEventListener('click', function () {
+                console.log('hi');
+                let deleteX = selected.x - 31;
+                let deleteY = selected.y - 31;
+                let deleteWidth = selected.radius *2 + 5;
+                let deleteHight = selected.radius *2 + 5;
+                ctx.clearRect(deleteX, deleteY, deleteWidth,deleteHight);
+                delete circles[i];
+            });*/
             
         }
     }
